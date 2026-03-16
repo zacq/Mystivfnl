@@ -1222,58 +1222,77 @@ a.info-card:hover {
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .navbar .btn {
-        display: none;
-    }
-    
-    .mobile-menu-btn {
-        display: block;
-    }
-    
-    .hero {
-        padding: 140px 0 80px;
-    }
-    
-    .trust-grid, .services-grid, .testimonials-grid {
+    .container { padding: 0 20px; }
+
+    .nav-links { display: none; }
+    .navbar .btn { display: none; }
+    .mobile-menu-btn { display: block; }
+
+    /* Hero — stack layout, fix padding */
+    .hero { padding: 80px 0 56px; }
+    .hero-layout {
         grid-template-columns: 1fr;
+        gap: 28px;
     }
-    
-    .step-card {
-        flex: 1 1 100%;
-        margin-bottom: 24px;
-    }
-    
-    .booking-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .form-group {
-        width: 100%;
-    }
-    
-    .est-checkboxes {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-    
-    .section-padding {
-        padding: 64px 0;
-    }
-    
-    .hero-ctas {
-        flex-direction: column;
-    }
-    
-    .section-header {
-        text-align: left;
-        align-items: flex-start;
+    .hero-headline { font-size: 40px; letter-spacing: -1px; }
+    .hero-subtext { font-size: 16px; margin-bottom: 28px; }
+    .hero-ctas { flex-direction: column; gap: 12px; }
+    .hero-ctas .btn { width: 100%; justify-content: center; }
+    .hero-highlights { gap: 20px; flex-wrap: wrap; }
+    .hero-visual { max-width: 500px; margin: 0 auto; width: 100%; }
+
+    /* Sections */
+    .section-padding { padding: 60px 0; }
+    .section-title { font-size: 32px; }
+    .section-header { text-align: center; align-items: center; margin-bottom: 40px; }
+    .section-desc, .section-subtitle { font-size: 15px; }
+
+    /* Grids */
+    .trust-grid, .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .step-card { flex: 1 1 100%; margin-bottom: 24px; }
+    .booking-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .est-checkboxes { grid-template-columns: 1fr; }
+    .form-group { width: 100%; }
+
+    /* Stats — 2×2 grid */
+    .stats-container { gap: 20px; }
+    .stat-value { font-size: 34px; }
+
+    /* Booking form */
+    .booking-form-wrapper { padding: 24px 20px; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 16px; }
+
+    /* Hero */
+    .hero { padding: 76px 0 48px; }
+    .hero-headline { font-size: 32px; letter-spacing: -0.5px; }
+    .hero-subtext { font-size: 15px; margin-bottom: 20px; }
+    .hero-highlights { gap: 14px; }
+    .hl-count { font-size: 22px; }
+    .hl-text { font-size: 11px; }
+    .hero-ctas .btn { padding: 14px 20px; }
+
+    /* Sections */
+    .section-title { font-size: 26px; }
+    .section-header { margin-bottom: 32px; }
+    .section-desc, .section-subtitle { font-size: 14px; }
+
+    /* Stats */
+    .stats-bar { padding: 36px 0; }
+    .stat-value { font-size: 30px; }
+    .stat-label { font-size: 12px; }
+
+    /* Booking form wrapper */
+    .booking-form-wrapper { padding: 20px 16px; border-radius: 16px; }
+
+    /* Chat — full width on tiny screens */
+    .chat-interface {
+        left: 10px;
+        right: 10px;
+        width: auto;
+        bottom: 80px;
     }
 }

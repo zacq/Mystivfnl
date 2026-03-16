@@ -1247,3 +1247,84 @@ textarea.form-control {
 @media (max-width: 480px) {
     .svc-cards-grid { grid-template-columns: 1fr; }
 }
+
+/* ================================================================
+   MOBILE RESPONSIVE — FORM & BOOKING
+   ================================================================ */
+
+/* ── Tablet / large phone (768px) ── */
+@media (max-width: 768px) {
+    /* Estimator vehicle buttons */
+    .veh-btn { min-height: 44px; font-size: 0.73rem; padding: 10px 8px; }
+
+    /* Estimator radio service buttons */
+    .est-options { gap: 8px; }
+    .est-btn { padding: 9px 14px; font-size: 0.8rem; }
+
+    /* Booking form: service listboxes side by side still fine at tablet */
+    .form-listbox option { padding: 10px 12px; font-size: 0.85rem; }
+}
+
+/* ── Small phone (480px) — booking form critical ── */
+@media (max-width: 480px) {
+
+    /* ─ CRITICAL: prevent iOS Safari input auto-zoom ─
+       iOS zooms in on any input with font-size < 16px.
+       This is the #1 mobile UX fix for booking forms.     */
+    .form-control,
+    .form-control::placeholder,
+    .form-listbox,
+    .form-listbox option {
+        font-size: 16px !important;
+    }
+
+    /* Slightly more padding so text isn't cramped */
+    .form-control { padding: 13px 14px; }
+
+    /* Booking form rows — single column always */
+    .form-grid { grid-template-columns: 1fr !important; gap: 10px; }
+
+    /* Form labels */
+    .form-group label { font-size: 11px; margin-bottom: 4px; }
+
+    /* Service listboxes — stack vertically, show more rows on small screen */
+    .form-listbox { font-size: 16px; }
+    .form-listbox option { padding: 12px 14px; }
+    select#bookServicePrimary { height: auto; }
+    select#bookServiceAddon { height: auto; }
+
+    /* Big, thumb-friendly submit button */
+    .btn-block {
+        min-height: 54px;
+        font-size: 1rem;
+        letter-spacing: 0.02em;
+        border-radius: 14px;
+        margin-top: 4px;
+    }
+
+    /* Vehicle buttons — 2 per row on tiny screens */
+    .veh-btns { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .veh-btn { min-height: 44px; padding: 10px 6px; font-size: 0.72rem; }
+    .est-group:first-child { max-width: 100%; }
+
+    /* Estimator service radio buttons — wrap tightly */
+    .est-options { gap: 6px; flex-wrap: wrap; }
+    .est-btn { padding: 8px 12px; font-size: 0.78rem; }
+
+    /* Booking form gap */
+    .booking-form { gap: 10px; }
+
+    /* Success / error banners */
+    .success-message, .error-message {
+        font-size: 0.875rem;
+        padding: 12px 14px;
+    }
+
+    /* Contact cards — stack cleanly */
+    .contact-card, .info-card {
+        padding: 16px;
+    }
+
+    /* Navbar padding on small screens */
+    .navbar { padding: 0 16px; }
+}
