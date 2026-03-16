@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery – Mystiv Auto Center</title>
+    <meta name="description" content="View our past work and premium results across all service categories at Mystiv Auto Center.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="glassmorphism.css">
+    <style>
+        .gallery-section { padding: 60px 0 20px; }
+        .gallery-section-header {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 16px; margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .gallery-section-title { display: flex; align-items: center; gap: 12px; }
+        .gallery-section-title .g-icon { font-size: 2rem; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 18px;
+        }
+        .gallery-item {
+            width: 100%; height: 220px;
+            border-radius: var(--radius-premium);
+            display: flex; align-items: flex-end; justify-content: flex-start;
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            overflow: hidden; position: relative;
+            color: var(--color-text-secondary);
+            padding: 16px;
+        }
+        .gallery-item::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(232,56,13,0.07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .gallery-item.hidden-tile { display: none; }
+        .gallery-item.hidden-tile.revealed { display: flex; }
+        .discover-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 24px;
+            border-radius: var(--radius-pill);
+            border: 1.5px solid var(--color-brand);
+            background: transparent;
+            color: var(--color-brand);
+            font-weight: 700; font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .discover-btn:hover {
+            background: var(--color-brand);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(232,56,13,0.25);
+        }
+        .discover-btn .discover-arrow { transition: transform 0.3s ease; }
+        .discover-btn.open .discover-arrow { transform: rotate(180deg); }
+        .gallery-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+            margin: 40px 0 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <img src="images/logo.png" alt="Mystiv logo">
+                <span>Mystiv</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="index.html#estimator">Price Calculator</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="index.html#booking" class="btn btn-primary" aria-label="Book Service">Book Service</a>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Gallery Hero -->
+    <section class="hero" style="min-height:45vh;padding:140px 0 60px;">
+        <div class="container hero-container" style="text-align:center;">
+            <h1 class="hero-headline reveal" style="margin-bottom:16px;">Our Showroom</h1>
+            <p class="hero-subtext reveal" style="margin:0 auto;max-width:560px;">
+                Explore our work across every service category. Click <strong>Discover More</strong> in any section to see additional photos.
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Content -->
+    <section class="section-padding bg-light">
+        <div class="container">
+
+            <!-- Garage Services -->
+            <div class="gallery-section reveal-up">
+                <div class="gallery-section-header">
+                    <div class="gallery-section-title">
+                        <span class="g-icon">🔧</span>
+                        <div>
+                            <p class="eyebrow" style="margin:0;">Workshop</p>
+                            <h2 class="section-title" style="margin:0;">Garage Services</h2>
+                        </div>
+                    </div>
+                    <button class="discover-btn" data-section="garage">
+                        Discover More <span class="discover-arrow">▼</span>
+                    </button>
+                </div>
+                <div class="gallery-grid" id="gallery-garage">
+                    <div class="gallery-item">Engine Diagnostics</div>
+                    <div class="gallery-item">Brake Service</div>
+                    <div class="gallery-item">Wheel Alignment</div>
+                    <div class="gallery-item hidden-tile">Suspension Repair</div>
+                    <div class="gallery-item hidden-tile">Oil Change</div>
+                    <div class="gallery-item hidden-tile">Transmission Work</div>
+                </div>
+                <div class="gallery-divider"></div>
+            </div>
+
+            <!-- Body Works -->
+            <div class="gallery-section reveal-up">
+                <div class="gallery-section-header">
+                    <div class="gallery-section-title">
+                        <span class="g-icon">🚗</span>
+                        <div>
+                            <p class="eyebrow" style="margin:0;">Restoration</p>
+                            <h2 class="section-title" style="margin:0;">Body Works</h2>
+                        </div>
+                    </div>
+                    <button class="discover-btn" data-section="bodyworks">
+                        Discover More <span class="discover-arrow">▼</span>
+                    </button>
+                </div>
+                <div class="gallery-grid" id="gallery-bodyworks">
+                    <div class="gallery-item">Panel Beating</div>
+                    <div class="gallery-item">Spray Painting</div>
+                    <div class="gallery-item">Dent Removal</div>
+                    <div class="gallery-item hidden-tile">Accident Repair</div>
+                    <div class="gallery-item hidden-tile">Full Body Repaint</div>
+                    <div class="gallery-item hidden-tile">Rust Treatment</div>
+                </div>
+                <div class="gallery-divider"></div>
+            </div>
+
+            <!-- Fabrication -->
+            <div class="gallery-section reveal-up">
+                <div class="gallery-section-header">
+                    <div class="gallery-section-title">
+                        <span class="g-icon">⚒️</span>
+                        <div>
+                            <p class="eyebrow" style="margin:0;">Metalwork</p>
+                            <h2 class="section-title" style="margin:0;">Fabrication</h2>
+                        </div>
+                    </div>
+                    <button class="discover-btn" data-section="fabrication">
+                        Discover More <span class="discover-arrow">▼</span>
+                    </button>
+                </div>
+                <div class="gallery-grid" id="gallery-fabrication">
+                    <div class="gallery-item">Bull Bar Build</div>
+                    <div class="gallery-item">Structural Welding</div>
+                    <div class="gallery-item">Chassis Work</div>
+                    <div class="gallery-item hidden-tile">Metal Fabrication</div>
+                    <div class="gallery-item hidden-tile">Trailer Repair</div>
+                    <div class="gallery-item hidden-tile">Custom Heavy Works</div>
+                </div>
+                <div class="gallery-divider"></div>
+            </div>
+
+            <!-- Carwash & Detailing -->
+            <div class="gallery-section reveal-up">
+                <div class="gallery-section-header">
+                    <div class="gallery-section-title">
+                        <span class="g-icon">✨</span>
+                        <div>
+                            <p class="eyebrow" style="margin:0;">Cleaning</p>
+                            <h2 class="section-title" style="margin:0;">Carwash &amp; Detailing</h2>
+                        </div>
+                    </div>
+                    <button class="discover-btn" data-section="carwash">
+                        Discover More <span class="discover-arrow">▼</span>
+                    </button>
+                </div>
+                <div class="gallery-grid" id="gallery-carwash">
+                    <div class="gallery-item">Full Detail</div>
+                    <div class="gallery-item">Ceramic Coating</div>
+                    <div class="gallery-item">Engine Wash</div>
+                    <div class="gallery-item hidden-tile">Paint Correction</div>
+                    <div class="gallery-item hidden-tile">Interior Deep Clean</div>
+                    <div class="gallery-item hidden-tile">Headlight Restoration</div>
+                </div>
+                <div class="gallery-divider"></div>
+            </div>
+
+            <!-- Recovery Services -->
+            <div class="gallery-section reveal-up">
+                <div class="gallery-section-header">
+                    <div class="gallery-section-title">
+                        <span class="g-icon">🚨</span>
+                        <div>
+                            <p class="eyebrow" style="margin:0;">Emergency</p>
+                            <h2 class="section-title" style="margin:0;">Recovery Services</h2>
+                        </div>
+                    </div>
+                    <button class="discover-btn" data-section="recovery">
+                        Discover More <span class="discover-arrow">▼</span>
+                    </button>
+                </div>
+                <div class="gallery-grid" id="gallery-recovery">
+                    <div class="gallery-item">Vehicle Towing</div>
+                    <div class="gallery-item">Breakdown Recovery</div>
+                    <div class="gallery-item">Heavy Recovery</div>
+                    <div class="gallery-item hidden-tile">Accident Recovery</div>
+                    <div class="gallery-item hidden-tile">Workshop Transport</div>
+                    <div class="gallery-item hidden-tile">Emergency Response</div>
+                </div>
+                <div class="gallery-divider"></div>
+            </div>
+
+            <!-- Bar & Service -->
+            <div class="gallery-section reveal-up">
+                <div class="gallery-section-header">
+                    <div class="gallery-section-title">
+                        <span class="g-icon">☕</span>
+                        <div>
+                            <p class="eyebrow" style="margin:0;">Hospitality</p>
+                            <h2 class="section-title" style="margin:0;">Bar &amp; Service</h2>
+                        </div>
+                    </div>
+                    <button class="discover-btn" data-section="bar">
+                        Discover More <span class="discover-arrow">▼</span>
+                    </button>
+                </div>
+                <div class="gallery-grid" id="gallery-bar">
+                    <div class="gallery-item">Customer Lounge</div>
+                    <div class="gallery-item">Refreshments</div>
+                    <div class="gallery-item">Waiting Area</div>
+                    <div class="gallery-item hidden-tile">Group Hosting</div>
+                    <div class="gallery-item hidden-tile">Meals & Snacks</div>
+                    <div class="gallery-item hidden-tile">Event Setup</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Mystiv logo">
+                        <span>Mystiv</span>
+                    </div>
+                    <p class="footer-desc">Premium automotive servicing, diagnostics, and detailing tailored to get you back on the road safely.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Get in Touch</h4>
+                    <p>📞 +254 700 123 456</p>
+                    <p>✉️ hello@mystiv.co.ke</p>
+                    <p>📍 Meru, Kenya</p>
+                    <p>🕒 Mon–Sat, 8am–6pm</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copy">© 2026 Mystiv Ltd · All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Chat -->
+    <button class="floating-chat-btn" id="chatToggle" aria-label="Open Chat">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </button>
+    <div class="chat-interface" id="chatInterface">
+        <div class="chat-header">
+            <div><h4 style="margin:0;color:white;font-size:16px;">Mystiv Support</h4><p style="margin:0;font-size:12px;opacity:0.8;">We typically reply in a few minutes</p></div>
+            <button class="close-chat" id="closeChat">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message bot-message"><p style="margin:0;">Hi there! 👋 How can we help you today?</p></div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" placeholder="Type a message..." id="chatInput">
+            <button class="send-message" id="sendMessage" aria-label="Send"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="glassmorphism.js"></script>
+    <script>
+        // Discover More toggle
+        document.querySelectorAll('.discover-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const grid = document.getElementById('gallery-' + btn.dataset.section);
+                const hidden = grid.querySelectorAll('.hidden-tile');
+                const open = btn.classList.contains('open');
+                btn.classList.toggle('open', !open);
+                btn.querySelector('.discover-arrow').textContent = open ? '▼' : '▲';
+                btn.childNodes[0].textContent = open ? 'Discover More ' : 'Show Less ';
+                hidden.forEach((tile, i) => {
+                    if (!open) {
+                        setTimeout(() => {
+                            tile.classList.add('revealed');
+                            tile.classList.add('reveal-up');
+                            setTimeout(() => tile.classList.add('active'), 20);
+                        }, i * 80);
+                    } else {
+                        tile.classList.remove('revealed', 'reveal-up', 'active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
