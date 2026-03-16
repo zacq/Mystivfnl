@@ -299,10 +299,11 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             // ── Booking submission via Netlify Function ───────────────────────
-            // The Airtable token lives in Netlify env vars (AIRTABLE_TOKEN).
-            // Set it at: Netlify Dashboard → Site → Environment variables
+            // Token lives in Netlify env vars (AIRTABLE_TOKEN).
+            // Local dev: run `netlify dev` instead of `npx serve`.
+            let ok = false;
             try {
-                await fetch('/.netlify/functions/book', {
+                const res = await fetch('/.netlify/functions/book', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -315,20 +316,29 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Additional Notes':   (data.time ? `Time: ${data.time}\n` : '') + data.notes
                     })
                 });
+                ok = res.ok;
+                if (!res.ok) console.warn('Submission error:', res.status, await res.text().catch(() => ''));
             } catch (err) {
                 console.warn('Booking submission failed:', err);
             }
 
-            setTimeout(() => {
-                btn.textContent = orig;
-                btn.disabled = false;
+            btn.textContent = orig;
+            btn.disabled = false;
+
+            const formError = document.getElementById('formError');
+            if (ok) {
                 bookingForm.reset();
                 if (addonSelect) { addonSelect.innerHTML = '<option value="">← Select primary first</option>'; addonSelect.disabled = true; }
                 if (formSuccess) {
                     formSuccess.style.display = 'block';
                     setTimeout(() => { formSuccess.style.display = 'none'; }, 5000);
                 }
-            }, 1200);
+            } else {
+                if (formError) {
+                    formError.style.display = 'block';
+                    setTimeout(() => { formError.style.display = 'none'; }, 6000);
+                }
+            }
         });
     }
 

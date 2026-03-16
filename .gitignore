@@ -13,3 +13,7 @@ npm-debug.log*
 
 # Node (if ever added)
 node_modules/
+
+# Local environment (never commit — contains secrets)
+.env
+.env.local
