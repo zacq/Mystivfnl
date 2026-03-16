@@ -4,8 +4,8 @@ exports.handler = async (event) => {
     }
 
     const token = process.env.AIRTABLE_TOKEN;
-    const base  = process.env.AIRTABLE_BASE  || 'appRLxYsFdg126gcy';
-    const table = process.env.AIRTABLE_TABLE || 'tblstcWyB1XJAiYGT';
+    const base  = process.env.AIRTABLE_BASE  || 'appIusIxCmha7lwTx';
+    const table = process.env.AIRTABLE_TABLE || 'tblztDpDrbvOpkhYg';
 
     if (!token) {
         return { statusCode: 500, body: JSON.stringify({ error: 'AIRTABLE_TOKEN not configured' }) };
@@ -31,6 +31,7 @@ exports.handler = async (event) => {
                     'Vehicle':           body['Vehicle']           || '',
                     'Service Requested': body['Service Requested'] || '',
                     'Preferred Date':    body['Preferred Date']    || '',
+                    'Preferred Time':    body['Preferred Time']    || '',
                     'Additional Notes':  body['Additional Notes']  || '',
                     'Submission Source': 'Booking Form',
                     'Status':            '🆕 New'

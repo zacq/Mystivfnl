@@ -152,17 +152,26 @@ document.addEventListener('DOMContentLoaded', () => {
         radio.addEventListener('change', () => buildAddons(radio.value));
     });
 
+    // Vehicle type button selection
+    const vehBtns = document.querySelectorAll('.veh-btn');
+    vehBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            vehBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+
     if (calcBtn && resultPanel && resultValue) {
         calcBtn.addEventListener('click', () => {
-            const vehicleSelect = document.getElementById('est-vehicle');
-            const serviceInput  = document.querySelector('input[name="service"]:checked');
+            const activeVeh   = document.querySelector('.veh-btn.active');
+            const serviceInput = document.querySelector('input[name="service"]:checked');
 
-            if (!vehicleSelect || !serviceInput) {
+            if (!activeVeh || !serviceInput) {
                 alert('Please select a vehicle type and service.');
                 return;
             }
 
-            const multiplier = VEHICLE_MULTIPLIERS[vehicleSelect.value] || 1.0;
+            const multiplier = VEHICLE_MULTIPLIERS[activeVeh.dataset.vehicle] || 1.0;
             let total = 0;
             document.querySelectorAll('input[name="addon"]:checked').forEach(cb => {
                 total += parseFloat(cb.dataset.price) || 0;
@@ -313,7 +322,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Vehicle':            data.vehicle,
                         'Service Requested':  data.service,
                         'Preferred Date':     data.date,
-                        'Additional Notes':   (data.time ? `Time: ${data.time}\n` : '') + data.notes
+                        'Preferred Time':     data.time,
+                        'Additional Notes':   data.notes
                     })
                 });
                 ok = res.ok;
