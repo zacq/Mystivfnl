@@ -757,7 +757,7 @@ body {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    padding: 40px;
+    padding: 24px 28px;
     border-radius: var(--radius-premium);
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: var(--shadow-l2);
@@ -766,7 +766,7 @@ body {
 .booking-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
 .form-group {
@@ -780,10 +780,12 @@ body {
 }
 
 .form-group label {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--color-text-primary);
+    margin-bottom: 4px;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .form-group input, 

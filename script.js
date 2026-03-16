@@ -217,17 +217,61 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ─── 6. Book Now Prefill ─────────────────────────────────────────────────
+    // ─── 6. Booking Service Selection ────────────────────────────────────────
+    const BOOKING_ADDONS = {
+        'Garage':      ['Minor Service', 'Major Service', 'Computer Diagnostics', 'Engine Repair', 'Brake Service', 'Suspension Repair', 'Steering Repair', 'Wheel Alignment', 'Tire Service', 'Battery Check', 'AC Service', 'Cooling System Repair', 'Transmission Service', 'Electrical Repair', 'Pre-Purchase Inspection', 'Fleet Maintenance'],
+        'Body Work':   ['Panel Beating', 'Accident Repair', 'Dent Removal', 'Spray Painting', 'Full Body Repaint', 'Bumper Repair', 'Chassis Straightening', 'Welding / Fabrication', 'Rust Treatment', 'Glass Replacement', 'Heavy Commercial Body Repair', 'Cabin Repair', 'Branding Surface Preparation'],
+        'Fabrication': ['Metal Fabrication', 'Structural Welding', 'Bull Bar Fabrication', 'Chassis Reinforcement', 'Trailer / Body Repair'],
+        'Car Wash':    ['Exterior Wash', 'Interior Cleaning', 'Full Car Wash', 'Engine Wash', 'Undercarriage Wash', 'Tire / Rim Cleaning', 'Detailing', 'Interior Detailing', 'Exterior Detailing', 'Paint Correction', 'Wax / Sealant Application', 'Ceramic Coating', 'Headlight Restoration', 'Upholstery Cleaning', 'Odor Removal'],
+        'Recovery':    ['Breakdown Recovery', 'Accident Recovery', 'Vehicle Towing', 'Workshop Delivery', 'Heavy Vehicle Recovery', 'Emergency Response'],
+        'Bar':         ['Soft Drinks', 'Tea / Coffee', 'Snacks', 'Meals / Food Service', 'Beer']
+    };
+
+    // Map data-service button values → primary select option values
+    const SERVICE_PREFILL_MAP = {
+        'Garage Services':     'Garage',
+        'Body Works':          'Body Work',
+        'Fabrication':         'Fabrication',
+        'Carwash & Detailing': 'Car Wash',
+        'Recovery Services':   'Recovery',
+        'Bar & Service':       'Bar'
+    };
+
+    const primarySelect = document.getElementById('bookServicePrimary');
+    const addonSelect   = document.getElementById('bookServiceAddon');
+
+    function populateAddonSelect(primaryValue) {
+        if (!addonSelect) return;
+        const items = BOOKING_ADDONS[primaryValue] || [];
+        addonSelect.innerHTML = items.length
+            ? items.map(s => `<option value="${s}">${s}</option>`).join('')
+            : '<option value="">No specific services</option>';
+        addonSelect.disabled = items.length === 0;
+    }
+
+    if (primarySelect && addonSelect) {
+        primarySelect.addEventListener('change', () => {
+            const val = primarySelect.value;
+            if (val) populateAddonSelect(val);
+            else {
+                addonSelect.innerHTML = '<option value="">← Select primary first</option>';
+                addonSelect.disabled = true;
+            }
+        });
+    }
+
+    // Book Now buttons prefill the primary service listbox
     document.querySelectorAll('[data-service]').forEach(btn => {
         btn.addEventListener('click', () => {
-            const serviceField = document.getElementById('bookService');
-            if (serviceField) {
-                serviceField.value = btn.dataset.service;
+            const mapped = SERVICE_PREFILL_MAP[btn.dataset.service] || btn.dataset.service;
+            if (primarySelect) {
+                primarySelect.value = mapped;
+                if (mapped) populateAddonSelect(mapped);
             }
         });
     });
 
-    // ─── 6. Booking Form ─────────────────────────────────────────────────────
+    // ─── 6. Booking Form Submit ───────────────────────────────────────────────
     const bookingForm = document.getElementById('bookingForm');
     const formSuccess = document.getElementById('formSuccess');
 
@@ -239,13 +283,18 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = 'Processing...';
             btn.disabled = true;
 
+            const primary = (document.getElementById('bookServicePrimary') || {}).value || '';
+            const addon   = (document.getElementById('bookServiceAddon')   || {}).value || '';
+            const service = primary && addon ? `${primary} — ${addon}` : (primary || addon);
+
             const data = {
                 name:    (document.getElementById('bookName')    || {}).value || '',
                 phone:   (document.getElementById('bookPhone')   || {}).value || '',
                 email:   (document.getElementById('bookEmail')   || {}).value || '',
                 vehicle: (document.getElementById('bookVehicle') || {}).value || '',
-                service: (document.getElementById('bookService') || {}).value || '',
+                service,
                 date:    (document.getElementById('bookDate')    || {}).value || '',
+                time:    (document.getElementById('bookTime')    || {}).value || '',
                 notes:   (document.getElementById('bookNotes')   || {}).value || ''
             };
 
@@ -263,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Vehicle':            data.vehicle,
                         'Service Requested':  data.service,
                         'Preferred Date':     data.date,
-                        'Additional Notes':   data.notes
+                        'Additional Notes':   (data.time ? `Time: ${data.time}\n` : '') + data.notes
                     })
                 });
             } catch (err) {
@@ -274,6 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.textContent = orig;
                 btn.disabled = false;
                 bookingForm.reset();
+                if (addonSelect) { addonSelect.innerHTML = '<option value="">← Select primary first</option>'; addonSelect.disabled = true; }
                 if (formSuccess) {
                     formSuccess.style.display = 'block';
                     setTimeout(() => { formSuccess.style.display = 'none'; }, 5000);

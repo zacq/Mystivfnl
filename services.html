@@ -252,6 +252,7 @@
             <div class="booking-grid">
                 <div class="booking-form-wrapper">
                     <form class="booking-form" id="bookingForm">
+                        <!-- Row 1: Name + Phone -->
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="bookName">Full Name</label>
@@ -262,39 +263,50 @@
                                 <input type="tel" id="bookPhone" class="form-control" placeholder="+254 711 758 633" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="bookEmail">Email Address</label>
-                            <input type="email" id="bookEmail" class="form-control" placeholder="you@example.com">
+                        <!-- Row 2: Email + Vehicle -->
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="bookEmail">Email Address</label>
+                                <input type="email" id="bookEmail" class="form-control" placeholder="you@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="bookVehicle">Vehicle Make &amp; Model</label>
+                                <input type="text" id="bookVehicle" class="form-control" placeholder="Toyota Harrier 2020" required>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="bookVehicle">Vehicle Make &amp; Model</label>
-                            <input type="text" id="bookVehicle" class="form-control" placeholder="Toyota Harrier 2020" required>
+                        <!-- Row 3: Primary Service + Specific Service -->
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="bookServicePrimary">Primary Service</label>
+                                <select id="bookServicePrimary" class="form-control form-listbox" size="3">
+                                    <option value="">— Select —</option>
+                                    <option value="Garage">Garage</option>
+                                    <option value="Body Work">Body Work</option>
+                                    <option value="Fabrication">Fabrication</option>
+                                    <option value="Car Wash">Car Wash</option>
+                                    <option value="Recovery">Recovery</option>
+                                    <option value="Bar">Bar</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookServiceAddon">Specific Service</label>
+                                <select id="bookServiceAddon" class="form-control form-listbox" size="4" disabled>
+                                    <option value="">← Select primary first</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="bookService">Service Requested</label>
-                            <select id="bookService" class="form-control">
-                                <option value="" disabled selected>Select a service…</option>
-                                <option value="Garage Services">Garage Services</option>
-                                <option value="Body Works">Body Works</option>
-                                <option value="Fabrication">Fabrication</option>
-                                <option value="Car Wash">Car Wash</option>
-                                <option value="Detailing">Detailing</option>
-                                <option value="Recovery">Recovery</option>
-                                <option value="Bar & Lounge">Bar &amp; Lounge</option>
-                                <option value="Minor Service">Minor Service</option>
-                                <option value="Major Service">Major Service</option>
-                                <option value="Engine Repair">Engine Repair</option>
-                                <option value="Brake Service">Brake Service</option>
-                                <option value="Spray Painting">Spray Painting</option>
-                                <option value="Accident Repair">Accident Repair</option>
-                                <option value="Ceramic Coating">Ceramic Coating</option>
-                                <option value="Other">Other</option>
-                            </select>
+                        <!-- Row 4: Date + Time -->
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="bookDate">Preferred Date</label>
+                                <input type="date" id="bookDate" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookTime">Preferred Time</label>
+                                <input type="time" id="bookTime" class="form-control">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="bookDate">Preferred Date</label>
-                            <input type="date" id="bookDate" class="form-control" required>
-                        </div>
+                        <!-- Notes -->
                         <div class="form-group">
                             <label for="bookNotes">Additional Notes</label>
                             <textarea id="bookNotes" class="form-control" rows="3" placeholder="Any details about your vehicle or specific concerns…"></textarea>
