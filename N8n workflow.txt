@@ -1,0 +1,173 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "mystiv-booking",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "a1b2c3d4-0001-4000-8000-mystivbooking",
+      "name": "Mystiv Booking Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-800, 300],
+      "webhookId": "a1b2c3d4-0001-4000-8000-mystivbooking"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ── Field extraction ──────────────────────────────────────────\nconst body = $json.body ?? $json;\n\nconst fullName  = String(body['Full Name']          || '').trim();\nconst phone     = String(body['Phone Number']        || '').trim();\nconst email     = String(body['Email Address']       || '').trim();\nconst vehicle   = String(body['Vehicle']             || '').trim();\nconst service   = String(body['Service Requested']   || '').trim();\nconst date      = String(body['Preferred Date']      || '').trim();\nconst time      = String(body['Preferred Time']      || '').trim();\nconst notes     = String(body['Additional Notes']    || '').trim();\nconst source    = String(body['Submission Source']   || 'Website').trim();\n\n// ── Validation ─────────────────────────────────────────────────\nif (!fullName || !phone) {\n  return [{ json: { isValid: false, message: 'Full Name and Phone Number are required.' } }];\n}\n\n// ── Client confirmation email HTML ─────────────────────────────\nconst clientHtml = `\n<!DOCTYPE html>\n<html>\n<body style=\"margin:0;padding:0;background:#f4f4f4;font-family:Arial,sans-serif;\">\n<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f4f4;padding:32px 0;\">\n  <tr><td align=\"center\">\n    <table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);\">\n      <!-- Header -->\n      <tr><td style=\"background:#111111;padding:28px 32px;\">\n        <h1 style=\"color:#E8380D;margin:0;font-size:24px;letter-spacing:1px;\">MYSTIV AUTO CENTER</h1>\n        <p style=\"color:#aaaaaa;margin:6px 0 0;font-size:13px;\">Booking Request Received</p>\n      </td></tr>\n      <!-- Body -->\n      <tr><td style=\"padding:32px;\">\n        <p style=\"margin-top:0;color:#111;font-size:16px;\">Dear <strong>${fullName}</strong>,</p>\n        <p style=\"color:#555;line-height:1.7;\">Thank you for choosing <strong>Mystiv Auto Center</strong>. We have received your booking request and our team will contact you shortly to confirm your appointment.</p>\n        <!-- Booking details table -->\n        <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:24px 0;border-radius:8px;overflow:hidden;border:1px solid #e0e0e0;\">\n          <tr style=\"background:#f9f9f9;\"><td style=\"padding:12px 16px;font-weight:700;color:#111;width:40%;border-bottom:1px solid #e0e0e0;\">Vehicle</td><td style=\"padding:12px 16px;color:#555;border-bottom:1px solid #e0e0e0;\">${vehicle || '—'}</td></tr>\n          <tr><td style=\"padding:12px 16px;font-weight:700;color:#111;border-bottom:1px solid #e0e0e0;\">Service</td><td style=\"padding:12px 16px;color:#555;border-bottom:1px solid #e0e0e0;\">${service || '—'}</td></tr>\n          <tr style=\"background:#f9f9f9;\"><td style=\"padding:12px 16px;font-weight:700;color:#111;border-bottom:1px solid #e0e0e0;\">Preferred Date</td><td style=\"padding:12px 16px;color:#555;border-bottom:1px solid #e0e0e0;\">${date || '—'}</td></tr>\n          <tr><td style=\"padding:12px 16px;font-weight:700;color:#111;\">Preferred Time</td><td style=\"padding:12px 16px;color:#555;\">${time || '—'}</td></tr>\n        </table>\n        ${notes ? `<p style=\"color:#555;\"><strong>Notes:</strong> ${notes}</p>` : ''}\n        <p style=\"color:#555;line-height:1.7;\">Our team will call you on <strong>${phone}</strong> to confirm. We look forward to serving you.</p>\n        <!-- CTA block -->\n        <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#E8380D;border-radius:8px;margin-top:24px;\">\n          <tr><td style=\"padding:20px 24px;\">\n            <p style=\"color:#fff;margin:0;font-weight:700;font-size:15px;\">Questions? We are here to help.</p>\n            <p style=\"color:rgba(255,255,255,0.85);margin:8px 0 0;font-size:13px;\">📞 +254 711 758 633 &nbsp;|&nbsp; ✉️ info@mystiv.co.ke</p>\n            <p style=\"color:rgba(255,255,255,0.85);margin:4px 0 0;font-size:13px;\">📍 Meru, Kenya &nbsp;|&nbsp; Mon–Sat · 8am–6pm</p>\n          </td></tr>\n        </table>\n      </td></tr>\n      <!-- Footer -->\n      <tr><td style=\"background:#f9f9f9;padding:16px 32px;text-align:center;border-top:1px solid #e0e0e0;\">\n        <p style=\"margin:0;font-size:12px;color:#aaa;\">© 2026 Mystiv Auto Center Ltd · All rights reserved</p>\n      </td></tr>\n    </table>\n  </td></tr>\n</table>\n</body>\n</html>`;\n\n// ── Internal notification HTML ──────────────────────────────────\nconst internalHtml = `\n<!DOCTYPE html>\n<html>\n<body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px;\">\n  <h2 style=\"color:#E8380D;border-bottom:2px solid #E8380D;padding-bottom:8px;\">🔔 New Booking Request</h2>\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse;\">\n    <tr><td style=\"padding:10px 14px;background:#f5f5f5;font-weight:700;width:35%;border-bottom:1px solid #e0e0e0;\">Full Name</td><td style=\"padding:10px 14px;border-bottom:1px solid #e0e0e0;\">${fullName}</td></tr>\n    <tr><td style=\"padding:10px 14px;background:#f5f5f5;font-weight:700;border-bottom:1px solid #e0e0e0;\">Phone</td><td style=\"padding:10px 14px;border-bottom:1px solid #e0e0e0;\">${phone}</td></tr>\n    <tr><td style=\"padding:10px 14px;background:#f5f5f5;font-weight:700;border-bottom:1px solid #e0e0e0;\">Email</td><td style=\"padding:10px 14px;border-bottom:1px solid #e0e0e0;\">${email || '—'}</td></tr>\n    <tr><td style=\"padding:10px 14px;background:#f5f5f5;font-weight:700;border-bottom:1px solid #e0e0e0;\">Vehicle</td><td style=\"padding:10px 14px;border-bottom:1px solid #e0e0e0;\">${vehicle || '—'}</td></tr>\n    <tr><td style=\"padding:10px 14px;background:#f5f5f5;font-weight:700;border-bottom:1px solid #e0e0e0;\">Service</td><td style=\"padding:10px 14px;border-bottom:1px solid #e0e0e0;\">${service || '—'}</td></tr>\n    <tr><td style=\"padding:10px 14px;background:#f5f5f5;font-weight:700;border-bottom:1px solid #e0e0e0;\">Preferred Date</td><td style=\"padding:10px 14px;border-bottom:1px solid #e0e0e0;\">${date || '—'}</td></tr>\n    <tr><td style=\"padding:10px 14px;background:#f5f5f5;font-weight:700;border-bottom:1px solid #e0e0e0;\">Preferred Time</td><td style=\"padding:10px 14px;border-bottom:1px solid #e0e0e0;\">${time || '—'}</td></tr>\n    <tr><td style=\"padding:10px 14px;background:#f5f5f5;font-weight:700;border-bottom:1px solid #e0e0e0;\">Notes</td><td style=\"padding:10px 14px;border-bottom:1px solid #e0e0e0;\">${notes || '—'}</td></tr>\n    <tr><td style=\"padding:10px 14px;background:#f5f5f5;font-weight:700;\">Source</td><td style=\"padding:10px 14px;\">${source}</td></tr>\n  </table>\n  <p style=\"margin-top:24px;font-size:13px;color:#888;\">Submitted at: ${new Date().toLocaleString('en-KE', { timeZone: 'Africa/Nairobi' })} (Nairobi time)</p>\n</body>\n</html>`;\n\nreturn [{ json: {\n  isValid: true,\n  fullName, phone, email, vehicle, service, date, time, notes, source,\n  clientHtml,\n  internalHtml,\n  clientSubject:   `Booking Received — Mystiv Auto Center`,\n  internalSubject: `New Booking: ${fullName} — ${service || 'Service Request'}`\n} }];"
+      },
+      "id": "b2c3d4e5-0002-4000-8000-validatedata",
+      "name": "Validate Booking Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-580, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "cond-isvalid",
+              "leftValue": "={{ $json.isValid }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "equals" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c3d4e5f6-0003-4000-8000-isvalidcheck",
+      "name": "Is Valid?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [-360, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.airtable.com/v0/appIusIxCmha7lwTx/tblztDpDrbvOpkhYg",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_AIRTABLE_PAT_HERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ ({ records: [{ fields: { 'Full Name': $json.fullName, 'Phone Number': $json.phone, 'Email Address': $json.email, 'Vehicle': $json.vehicle, 'Service Requested': $json.service, 'Preferred Date': $json.date, 'Preferred Time': $json.time, 'Additional Notes': $json.notes, 'Submission Source': $json.source, 'Status': 'New' } }] }) }}",
+        "options": { "response": { "response": {} } }
+      },
+      "id": "d4e5f6a7-0004-4000-8000-saveairtable",
+      "name": "Save to Airtable",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-140, 160],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.brevo.com/v3/smtp/email",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "api-key", "value": "YOUR_BREVO_API_KEY" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ ({ sender: { name: 'Mystiv Auto Center', email: 'info@mystiv.co.ke' }, to: [{ email: $('Validate Booking Data').item.json.email || 'noreply@mystiv.co.ke', name: $('Validate Booking Data').item.json.fullName }], subject: $('Validate Booking Data').item.json.clientSubject, htmlContent: $('Validate Booking Data').item.json.clientHtml }) }}",
+        "options": { "response": { "response": {} } }
+      },
+      "id": "e5f6a7b8-0005-4000-8000-clientemail",
+      "name": "Send Client Confirmation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [80, 160],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.brevo.com/v3/smtp/email",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "api-key", "value": "YOUR_BREVO_API_KEY" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ ({ sender: { name: 'Mystiv Booking System', email: 'info@mystiv.co.ke' }, to: [{ email: 'info@mystiv.co.ke', name: 'Mystiv Auto Center' }], subject: $('Validate Booking Data').item.json.internalSubject, htmlContent: $('Validate Booking Data').item.json.internalHtml }) }}",
+        "options": { "response": { "response": {} } }
+      },
+      "id": "f6a7b8c9-0006-4000-8000-internalnotify",
+      "name": "Notify Mystiv Team",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [300, 160],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ ({ success: true, message: 'Booking received. We will contact you shortly.' }) }}",
+        "options": {}
+      },
+      "id": "a7b8c9d0-0007-4000-8000-respondok",
+      "name": "Respond Success",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [520, 160]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ ({ success: false, message: $json.message }) }}",
+        "options": {}
+      },
+      "id": "b8c9d0e1-0008-4000-8000-responderror",
+      "name": "Respond Error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [-140, 440]
+    }
+  ],
+  "connections": {
+    "Mystiv Booking Webhook": {
+      "main": [[{ "node": "Validate Booking Data", "type": "main", "index": 0 }]]
+    },
+    "Validate Booking Data": {
+      "main": [[{ "node": "Is Valid?", "type": "main", "index": 0 }]]
+    },
+    "Is Valid?": {
+      "main": [
+        [{ "node": "Save to Airtable", "type": "main", "index": 0 }],
+        [{ "node": "Respond Error",    "type": "main", "index": 0 }]
+      ]
+    },
+    "Save to Airtable": {
+      "main": [[{ "node": "Send Client Confirmation", "type": "main", "index": 0 }]]
+    },
+    "Send Client Confirmation": {
+      "main": [[{ "node": "Notify Mystiv Team", "type": "main", "index": 0 }]]
+    },
+    "Notify Mystiv Team": {
+      "main": [[{ "node": "Respond Success", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "mystiv-auto-center-booking-v1"
+  }
+}

@@ -691,24 +691,7 @@ body.menu-open .mobile-nav-panel {
     display: block;
 }
 
-.slide-label {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    background: rgba(10, 10, 10, 0.65);
-    color: rgba(255, 255, 255, 0.92);
-    padding: 6px 14px;
-    border-radius: var(--radius-pill);
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 2;
-}
+.slide-label { display: none; }
 
 .carousel-indicators {
     display: flex;

@@ -112,10 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const mobileLinks = originalNavLinks.cloneNode(true);
         mobileLinks.className = 'mobile-nav-links';
+        // Remove the desktop contact popup wrapper — replace with plain contact link
+        const clonedContactWrap = mobileLinks.querySelector('.nav-contact-wrap');
+        if (clonedContactWrap) {
+            const mobileContactLink = document.createElement('a');
+            mobileContactLink.href = 'tel:+254711758633';
+            mobileContactLink.textContent = 'Contact';
+            clonedContactWrap.replaceWith(mobileContactLink);
+        }
+        // Remove any leftover IDs to prevent duplicates
+        mobileLinks.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
 
-        const mobileBookBtn = document.createElement('a');
-        mobileBookBtn.href = '#booking';
+        const mobileBookBtn = document.createElement('button');
+        mobileBookBtn.type = 'button';
         mobileBookBtn.className = 'btn btn-primary';
+        mobileBookBtn.dataset.bookingPopup = '';
         mobileBookBtn.textContent = 'Book Service';
 
         panel.appendChild(mobileLinks);

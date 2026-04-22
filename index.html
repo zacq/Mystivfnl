@@ -25,9 +25,25 @@
                 <a href="services.html">Services</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="#estimator">Price Calculator</a>
-                <a href="#contact">Contact</a>
+                <div class="nav-contact-wrap">
+                    <a href="#" id="contactNavTrigger">Contact</a>
+                    <div class="contact-popup" id="contactPopup">
+                        <a href="tel:+254711758633" class="contact-popup-link">
+                            <span class="contact-popup-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.4 2 2 0 0 1 3.62 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"></path></svg>
+                            </span>
+                            +254 711 758 633
+                        </a>
+                        <a href="mailto:info@mystiv.co.ke" class="contact-popup-link">
+                            <span class="contact-popup-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </span>
+                            info@mystiv.co.ke
+                        </a>
+                    </div>
+                </div>
             </div>
-            <a href="#booking" class="btn btn-primary" aria-label="Book Service">Book Service</a>
+            <button class="btn btn-primary" data-booking-popup="" aria-label="Book Service">Book Service</button>
             <button class="mobile-menu-btn" aria-label="Toggle Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -42,18 +58,49 @@
     <section class="hero" id="home">
         <div class="hero-decorative-orb"></div>
         <div class="container hero-layout">
-            <div class="hero-content reveal">
-                <div class="hero-badge">
-                    <span class="badge-icon">★</span>
-                    <span>Kenya's #1 Rated Auto Service</span>
+            <div class="hero-content">
+                <div class="hero-text-wrap">
+                    <!-- Slide 1 -->
+                    <div class="hero-text-slide active">
+                        <div class="hero-badge reveal">
+                            <span class="badge-icon">★</span>
+                            <span>Kenya's #1 Rated Auto Service</span>
+                        </div>
+                        <h1 class="hero-headline reveal">Precision Engineering,<br><span class="text-gradient">Premium Care.</span></h1>
+                        <p class="hero-subtext reveal">Experience first-class automotive service. From diagnostics to complex repairs, we keep your premium vehicle in peak condition with factory-grade precision.</p>
+                        <div class="hero-ctas reveal">
+                            <button class="btn btn-primary btn-large" data-booking-popup="">Book Your Service</button>
+                            <a href="#services" class="btn btn-glass btn-large">Explore Services</a>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="hero-text-slide">
+                        <div class="hero-badge">
+                            <span class="badge-icon">★</span>
+                            <span>Kenya's #1 Rated Auto Service</span>
+                        </div>
+                        <h1 class="hero-headline">Where Precision Meets<br><span class="text-gradient">Performance.</span></h1>
+                        <p class="hero-subtext">Premium automotive service built for vehicles that demand more — advanced diagnostics, expert repairs, and uncompromising care.</p>
+                        <div class="hero-ctas">
+                            <button class="btn btn-primary btn-large" data-booking-popup="">Book Your Service</button>
+                            <a href="#services" class="btn btn-glass btn-large">Explore Services</a>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="hero-text-slide">
+                        <div class="hero-badge">
+                            <span class="badge-icon">★</span>
+                            <span>Kenya's #1 Rated Auto Service</span>
+                        </div>
+                        <h1 class="hero-headline">Engineered for Excellence.<br><span class="text-gradient">Driven by Precision.</span></h1>
+                        <p class="hero-subtext">Elite automotive care designed to keep your vehicle performing at its absolute best — diagnostics, repairs, and everything in between.</p>
+                        <div class="hero-ctas">
+                            <button class="btn btn-primary btn-large" data-booking-popup="">Book Your Service</button>
+                            <a href="#services" class="btn btn-glass btn-large">Explore Services</a>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="hero-headline">Precision Engineering,<br><span class="text-gradient">Premium Care.</span></h1>
-                <p class="hero-subtext">Experience first-class automotive service. From diagnostics to complex repairs, we keep your premium vehicle in peak condition with factory-grade precision.</p>
-                <div class="hero-ctas">
-                    <a href="#booking" class="btn btn-primary btn-large">Book Your Service</a>
-                    <a href="#services" class="btn btn-glass btn-large">Explore Services</a>
-                </div>
-                <div class="hero-highlights">
+                <div class="hero-highlights reveal">
                     <div class="highlight-item">
                         <span class="hl-count">15k+</span>
                         <span class="hl-text">Repairs Completed</span>
@@ -72,16 +119,13 @@
                 <div class="hero-carousel">
                     <div class="carousel-inner">
                         <div class="carousel-slide active">
-                            <img src="images/Hero.png" alt="Workshop & Garage Services" class="hero-img-main">
-                            <span class="slide-label">🔧 Workshop Services</span>
+                            <img src="images/hero%20imgs%20(1).png" alt="Mystiv Auto Center — Fleet Services" class="hero-img-main">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/Hero.png" alt="Body Works & Detailing" class="hero-img-main">
-                            <span class="slide-label">🚗 Body Works</span>
+                            <img src="images/hero%20imgs%20(2).png" alt="Mystiv Auto Center — Car Wash" class="hero-img-main">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/Hero.png" alt="Detailing & Recovery" class="hero-img-main">
-                            <span class="slide-label">✨ Detailing & Recovery</span>
+                            <img src="images/hero%20imgs%20(3).png" alt="Mystiv Auto Center — Facility" class="hero-img-main">
                         </div>
                     </div>
                     <div class="carousel-indicators">
@@ -104,22 +148,10 @@
     <!-- Stats Bar -->
     <section class="stats-bar">
         <div class="container stats-container">
-            <div class="stat-item">
-                <div class="stat-value">500+</div>
-                <div class="stat-label">Cars Serviced</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">15+</div>
-                <div class="stat-label">Technicians</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">98%</div>
-                <div class="stat-label">Satisfaction</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">24hr</div>
-                <div class="stat-label">Turnaround</div>
-            </div>
+            <div class="stat-item"><div class="stat-value">500+</div><div class="stat-label">Cars Serviced</div></div>
+            <div class="stat-item"><div class="stat-value">15+</div><div class="stat-label">Technicians</div></div>
+            <div class="stat-item"><div class="stat-value">98%</div><div class="stat-label">Satisfaction</div></div>
+            <div class="stat-item"><div class="stat-value">24hr</div><div class="stat-label">Turnaround</div></div>
         </div>
     </section>
 
@@ -134,7 +166,6 @@
                 <span class="partner-item">Silver Spread</span>
                 <span class="partner-item">MT Kenya Trucks</span>
                 <span class="partner-item">Apex Trucks</span>
-                <!-- Duplicate for seamless loop -->
                 <span class="partner-item">Geoland</span>
                 <span class="partner-item">Thamba Ngombe LTD</span>
                 <span class="partner-item">Kinginya &amp; Sons Distributors</span>
@@ -194,7 +225,7 @@
                     <h3 class="service-title">Garage Services</h3>
                     <p class="service-desc">Diagnostics, servicing, suspension, brakes, alignment, and general workshop repairs.</p>
                     <div class="service-ctas">
-                        <a href="#booking" class="btn btn-primary btn-small" data-service="Garage Services">Book Now</a>
+                        <button class="btn btn-primary btn-small" data-booking-popup="Garage Services">Book Now</button>
                         <a href="gallery.html" class="btn btn-outline btn-small">View in Gallery</a>
                     </div>
                 </div>
@@ -203,7 +234,7 @@
                     <h3 class="service-title">Body Works</h3>
                     <p class="service-desc">Dent repair, panel beating, spray painting, polishing, and ceramic coating.</p>
                     <div class="service-ctas">
-                        <a href="#booking" class="btn btn-primary btn-small" data-service="Body Works">Book Now</a>
+                        <button class="btn btn-primary btn-small" data-booking-popup="Body Works">Book Now</button>
                         <a href="gallery.html" class="btn btn-outline btn-small">View in Gallery</a>
                     </div>
                 </div>
@@ -212,16 +243,16 @@
                     <h3 class="service-title">Fabrication</h3>
                     <p class="service-desc">Welding, reinforcement, bull bars, and chassis modifications.</p>
                     <div class="service-ctas">
-                        <a href="#booking" class="btn btn-primary btn-small" data-service="Fabrication">Book Now</a>
+                        <button class="btn btn-primary btn-small" data-booking-popup="Fabrication">Book Now</button>
                         <a href="gallery.html" class="btn btn-outline btn-small">View in Gallery</a>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">✨</div>
-                    <h3 class="service-title">Carwash & Detailing</h3>
+                    <h3 class="service-title">Carwash &amp; Detailing</h3>
                     <p class="service-desc">Exterior wash, interior cleaning, engine wash, and full detailing.</p>
                     <div class="service-ctas">
-                        <a href="#booking" class="btn btn-primary btn-small" data-service="Carwash & Detailing">Book Now</a>
+                        <button class="btn btn-primary btn-small" data-booking-popup="Carwash &amp; Detailing">Book Now</button>
                         <a href="gallery.html" class="btn btn-outline btn-small">View in Gallery</a>
                     </div>
                 </div>
@@ -230,16 +261,16 @@
                     <h3 class="service-title">Recovery Services</h3>
                     <p class="service-desc">Support for broken-down, damaged, or non-operational vehicles requiring movement to Mystiv for service.</p>
                     <div class="service-ctas">
-                        <a href="#booking" class="btn btn-primary btn-small" data-service="Recovery Services">Book Now</a>
+                        <button class="btn btn-primary btn-small" data-booking-popup="Recovery Services">Book Now</button>
                         <a href="gallery.html" class="btn btn-outline btn-small">View in Gallery</a>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">☕</div>
-                    <h3 class="service-title">Bar & Service</h3>
+                    <h3 class="service-title">Bar &amp; Service</h3>
                     <p class="service-desc">Refreshments, drinks, and customer waiting-area service during vehicle servicing.</p>
                     <div class="service-ctas">
-                        <a href="#booking" class="btn btn-primary btn-small" data-service="Bar & Service">Book Now</a>
+                        <button class="btn btn-primary btn-small" data-booking-popup="Bar &amp; Service">Book Now</button>
                         <a href="gallery.html" class="btn btn-outline btn-small">View in Gallery</a>
                     </div>
                 </div>
@@ -287,7 +318,7 @@
                 </div>
             </div>
             <div class="process-cta">
-                <a href="#booking" class="btn btn-primary btn-large">Start Your Booking</a>
+                <button class="btn btn-primary btn-large" data-booking-popup="">Start Your Booking</button>
             </div>
         </div>
     </section>
@@ -298,68 +329,36 @@
             <div class="section-header">
                 <p class="eyebrow">Pricing</p>
                 <h2 class="section-title">Estimate Your Service Cost</h2>
-                <p class="section-subtitle">Select your vehicle type and service to get an instant estimate.</p>
+                <p class="section-subtitle">Select a service type and add-ons for an instant live estimate.</p>
             </div>
             <div class="estimator-panel">
 
-                <div class="est-group">
-                    <h3 class="est-group-title">1. Select Vehicle Type</h3>
-                    <div class="veh-btns" id="est-vehicle-btns">
-                        <button type="button" class="veh-btn active" data-vehicle="suv">SUV</button>
-                        <button type="button" class="veh-btn" data-vehicle="pickup">Pick-Up</button>
-                        <button type="button" class="veh-btn" data-vehicle="sedan">Sedan</button>
-                        <button type="button" class="veh-btn" data-vehicle="van">Van</button>
-                        <button type="button" class="veh-btn" data-vehicle="hatchback">Hatchback</button>
-                        <button type="button" class="veh-btn" data-vehicle="truck">Full-Size Truck</button>
-                    </div>
-                </div>
-
-                <div class="est-group">
-                    <h3 class="est-group-title">2. Select Service Type</h3>
+                <div class="est-group est-group--sm">
+                    <h3 class="est-group-title est-group-title--sm">1. Select Service Type</h3>
                     <div class="est-options">
-                        <label class="est-option">
-                            <input type="radio" name="service" value="garage" checked>
-                            <span class="est-btn">Garage Services</span>
-                        </label>
-                        <label class="est-option">
-                            <input type="radio" name="service" value="bodyworks">
-                            <span class="est-btn">Body Works</span>
-                        </label>
-                        <label class="est-option">
-                            <input type="radio" name="service" value="fabrication">
-                            <span class="est-btn">Fabrication</span>
-                        </label>
-                        <label class="est-option">
-                            <input type="radio" name="service" value="carwash">
-                            <span class="est-btn">Carwash & Detailing</span>
-                        </label>
-                        <label class="est-option">
-                            <input type="radio" name="service" value="recovery">
-                            <span class="est-btn">Recovery Services</span>
-                        </label>
-                        <label class="est-option">
-                            <input type="radio" name="service" value="bar">
-                            <span class="est-btn">Bar & Service</span>
-                        </label>
+                        <label class="est-option"><input type="radio" name="service" value="garage" checked><span class="est-btn est-btn--sm">Garage Services</span></label>
+                        <label class="est-option"><input type="radio" name="service" value="bodyworks"><span class="est-btn est-btn--sm">Body Works</span></label>
+                        <label class="est-option"><input type="radio" name="service" value="fabrication"><span class="est-btn est-btn--sm">Fabrication</span></label>
+                        <label class="est-option"><input type="radio" name="service" value="carwash"><span class="est-btn est-btn--sm">Carwash &amp; Detailing</span></label>
+                        <label class="est-option"><input type="radio" name="service" value="recovery"><span class="est-btn est-btn--sm">Recovery Services</span></label>
+                        <label class="est-option"><input type="radio" name="service" value="bar"><span class="est-btn est-btn--sm">Bar &amp; Service</span></label>
                     </div>
                 </div>
 
-                <div class="est-group">
-                    <h3 class="est-group-title">3. Additional Services</h3>
-                    <div id="est-addons-wrap" class="est-checkboxes">
-                        <!-- Dynamically populated by script.js -->
+                <div class="est-group est-group--sm">
+                    <h3 class="est-group-title est-group-title--sm">2. Select Add-Ons</h3>
+                    <div id="est-addons-wrap" class="est-checkboxes est-checkboxes--sm"></div>
+                </div>
+
+                <div class="est-live-result">
+                    <div class="est-live-left">
+                        <div class="est-live-label">Estimated Total</div>
+                        <div class="est-live-value" id="estLiveValue">KES 0</div>
+                        <div class="est-live-note">Final price confirmed on inspection.</div>
                     </div>
+                    <button class="btn btn-primary est-book-btn" data-booking-popup="">Book This Service</button>
                 </div>
 
-                <div class="est-action">
-                    <button id="calc-btn" class="btn btn-primary btn-large">Calculate My Price</button>
-                </div>
-
-                <div id="est-result" class="est-result" style="display:none;">
-                    <div class="result-label">Estimated Cost:</div>
-                    <div class="result-value">KES 0</div>
-                    <div class="result-note">Final price may vary upon physical inspection. Vehicle type multiplier applied.</div>
-                </div>
             </div>
         </div>
     </section>
@@ -375,7 +374,6 @@
                 <!-- Left: Booking Form -->
                 <div class="booking-form-wrapper glass">
                     <form class="booking-form" id="bookingForm">
-                        <!-- Row 1: Name + Phone -->
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="bookName">Full Name</label>
@@ -386,7 +384,6 @@
                                 <input type="tel" id="bookPhone" class="form-control" placeholder="+254 700 000 000" required>
                             </div>
                         </div>
-                        <!-- Row 2: Email + Vehicle -->
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="bookEmail">Email Address</label>
@@ -397,28 +394,28 @@
                                 <input type="text" id="bookVehicle" class="form-control" placeholder="Toyota Harrier 2020" required>
                             </div>
                         </div>
-                        <!-- Row 3: Primary Service + Specific Service -->
-                        <div class="form-grid">
+                        <!-- Primary Service -->
+                        <div class="form-group">
+                            <label for="bookServicePrimary">Primary Service</label>
+                            <select id="bookServicePrimary" class="form-control">
+                                <option value="">— Select a service —</option>
+                                <option value="Garage">Garage</option>
+                                <option value="Body Work">Body Work</option>
+                                <option value="Fabrication">Fabrication</option>
+                                <option value="Car Wash">Car Wash</option>
+                                <option value="Recovery">Recovery</option>
+                                <option value="Bar">Bar</option>
+                            </select>
+                        </div>
+                        <!-- Specific Service checkboxes -->
+                        <div id="specificServiceWrap" style="display:none;">
                             <div class="form-group">
-                                <label for="bookServicePrimary">Primary Service</label>
-                                <select id="bookServicePrimary" class="form-control form-listbox" size="3">
-                                    <option value="">— Select —</option>
-                                    <option value="Garage">Garage</option>
-                                    <option value="Body Work">Body Work</option>
-                                    <option value="Fabrication">Fabrication</option>
-                                    <option value="Car Wash">Car Wash</option>
-                                    <option value="Recovery">Recovery</option>
-                                    <option value="Bar">Bar</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="bookServiceAddon">Specific Service</label>
-                                <select id="bookServiceAddon" class="form-control form-listbox" size="4" disabled>
-                                    <option value="">← Select primary first</option>
-                                </select>
+                                <label>Specific Service(s)</label>
+                                <div class="specific-svc-list" id="specificServiceList"></div>
+                                <button type="button" class="svc-confirm-btn" id="confirmServiceBtn">Confirm Selection ✓</button>
+                                <div class="svc-confirmed-label" id="confirmedServiceLabel"></div>
                             </div>
                         </div>
-                        <!-- Row 4: Date + Time -->
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="bookDate">Preferred Date</label>
@@ -429,50 +426,33 @@
                                 <input type="time" id="bookTime" class="form-control">
                             </div>
                         </div>
-                        <!-- Notes -->
                         <div class="form-group">
                             <label for="bookNotes">Additional Notes</label>
                             <textarea id="bookNotes" class="form-control" rows="3" placeholder="Any details about your vehicle or specific concerns…"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Confirm Booking Appointment</button>
                     </form>
-                    <div id="formSuccess" class="success-message" style="display:none;">
-                        <p>✓ Booking request sent! We'll contact you shortly.</p>
-                    </div>
-                    <div id="formError" class="error-message" style="display:none;">
-                        <p>✗ Submission failed. Please call us on +254 711 758 633 or try again.</p>
-                    </div>
+                    <div id="formSuccess" class="success-message" style="display:none;"><p>✓ Booking request sent! We'll contact you shortly.</p></div>
+                    <div id="formError" class="error-message" style="display:none;"><p>✗ Submission failed. Please call us on +254 711 758 633 or try again.</p></div>
                 </div>
 
                 <!-- Right: Contact Cards -->
                 <div class="contact-cards">
                     <a href="https://maps.app.goo.gl/SuhrpVXVgZycWoa87" target="_blank" rel="noopener" class="contact-card info-card reveal">
                         <div class="contact-icon">📍</div>
-                        <div class="contact-info">
-                            <h4>Visit Our Workshop</h4>
-                            <p>Meru, Kenya — View on Maps →</p>
-                        </div>
+                        <div class="contact-info"><h4>Visit Our Workshop</h4><p>Meru, Kenya — View on Maps →</p></div>
                     </a>
                     <a href="tel:+254711758633" class="contact-card info-card reveal">
                         <div class="contact-icon">📞</div>
-                        <div class="contact-info">
-                            <h4>Call Us Now</h4>
-                            <p>+254 711 758 633</p>
-                        </div>
+                        <div class="contact-info"><h4>Call Us Now</h4><p>+254 711 758 633</p></div>
                     </a>
                     <a href="mailto:info@mystiv.co.ke" class="contact-card info-card reveal">
                         <div class="contact-icon">✉️</div>
-                        <div class="contact-info">
-                            <h4>Email Us</h4>
-                            <p>info@mystiv.co.ke</p>
-                        </div>
+                        <div class="contact-info"><h4>Email Us</h4><p>info@mystiv.co.ke</p></div>
                     </a>
                     <div class="contact-card info-card reveal">
                         <div class="contact-icon">🕒</div>
-                        <div class="contact-info">
-                            <h4>Working Hours</h4>
-                            <p>Mon–Sat, 8am–6pm</p>
-                        </div>
+                        <div class="contact-info"><h4>Working Hours</h4><p>Mon–Sat, 8am–6pm</p></div>
                     </div>
                 </div>
             </div>
@@ -485,10 +465,13 @@
             <div class="section-header">
                 <h2 class="section-title">What Our Customers Say</h2>
             </div>
-            <div class="testimonials-grid">
+        </div>
+        <div class="testimonials-stream-wrap">
+            <div class="testimonials-stream-track">
+                <!-- Set 1 -->
                 <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-quote">"Best car service. Fast, honest and extremely professional in how they handle customers."</p>
+                    <p class="testimonial-quote">"Best car service in Meru. Fast, honest and extremely professional in how they handle customers."</p>
                     <div class="testimonial-author">James Mwangi · Toyota Harrier</div>
                 </div>
                 <div class="testimonial-card">
@@ -500,6 +483,92 @@
                     <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-quote">"Transparent pricing from the get-go. No surprise fees. Definitely coming back."</p>
                     <div class="testimonial-author">Eric Kiprotich · Subaru Outback</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"My Prado's suspension was making a terrible noise. They fixed it within hours and gave me a detailed report."</p>
+                    <div class="testimonial-author">Grace Njoroge · Land Cruiser Prado</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"The body works team restored my car after a bad accident. Looks brand new. Incredible craftsmanship."</p>
+                    <div class="testimonial-author">David Kamau · Honda CRV</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"I've been bringing my fleet here for 2 years. Competitive pricing, always on time. Highly reliable."</p>
+                    <div class="testimonial-author">Collins Maina · Fleet Manager, Geoland</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"The ceramic coating they did on my car is stunning. Even water just beads off perfectly."</p>
+                    <div class="testimonial-author">Sharon Wanjiru · BMW X5</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"Booked recovery for my truck online, they arrived in under 40 minutes. Very responsive team."</p>
+                    <div class="testimonial-author">Peter Muriithi · Mitsubishi Canter</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"The waiting lounge is comfortable, staff are friendly and kept me updated throughout. 10/10."</p>
+                    <div class="testimonial-author">Lucy Wambui · Mazda CX-5</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"Honest mechanics are rare. These guys told me what my car needed and only charged for what they did. Respect."</p>
+                    <div class="testimonial-author">Tom Gitonga · Volkswagen Tiguan</div>
+                </div>
+                <!-- Set 2 (duplicate for seamless loop) -->
+                <div class="testimonial-card" aria-hidden="true">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"Best car service in Meru. Fast, honest and extremely professional in how they handle customers."</p>
+                    <div class="testimonial-author">James Mwangi · Toyota Harrier</div>
+                </div>
+                <div class="testimonial-card" aria-hidden="true">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"Diagnosed my AC issue in exactly 15 minutes. Truly impressive technical team."</p>
+                    <div class="testimonial-author">Amina Odhiambo · Nissan X-Trail</div>
+                </div>
+                <div class="testimonial-card" aria-hidden="true">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"Transparent pricing from the get-go. No surprise fees. Definitely coming back."</p>
+                    <div class="testimonial-author">Eric Kiprotich · Subaru Outback</div>
+                </div>
+                <div class="testimonial-card" aria-hidden="true">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"My Prado's suspension was making a terrible noise. They fixed it within hours and gave me a detailed report."</p>
+                    <div class="testimonial-author">Grace Njoroge · Land Cruiser Prado</div>
+                </div>
+                <div class="testimonial-card" aria-hidden="true">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"The body works team restored my car after a bad accident. Looks brand new. Incredible craftsmanship."</p>
+                    <div class="testimonial-author">David Kamau · Honda CRV</div>
+                </div>
+                <div class="testimonial-card" aria-hidden="true">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"I've been bringing my fleet here for 2 years. Competitive pricing, always on time. Highly reliable."</p>
+                    <div class="testimonial-author">Collins Maina · Fleet Manager, Geoland</div>
+                </div>
+                <div class="testimonial-card" aria-hidden="true">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"The ceramic coating they did on my car is stunning. Even water just beads off perfectly."</p>
+                    <div class="testimonial-author">Sharon Wanjiru · BMW X5</div>
+                </div>
+                <div class="testimonial-card" aria-hidden="true">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"Booked recovery for my truck online, they arrived in under 40 minutes. Very responsive team."</p>
+                    <div class="testimonial-author">Peter Muriithi · Mitsubishi Canter</div>
+                </div>
+                <div class="testimonial-card" aria-hidden="true">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"The waiting lounge is comfortable, staff are friendly and kept me updated throughout. 10/10."</p>
+                    <div class="testimonial-author">Lucy Wambui · Mazda CX-5</div>
+                </div>
+                <div class="testimonial-card" aria-hidden="true">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"Honest mechanics are rare. These guys told me what my car needed and only charged for what they did. Respect."</p>
+                    <div class="testimonial-author">Tom Gitonga · Volkswagen Tiguan</div>
                 </div>
             </div>
         </div>
@@ -536,8 +605,6 @@
                     <a href="#">Home</a>
                     <a href="services.html">Services</a>
                     <a href="gallery.html">Gallery</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#booking">Book a Service</a>
                     <a href="#estimator">Price Calculator</a>
                 </div>
                 <div class="footer-col">
@@ -557,30 +624,75 @@
 
     <!-- Floating Chat Button -->
     <button class="floating-chat-btn" id="chatToggle" aria-label="Open Chat">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
     </button>
-
-    <!-- Chat Interface -->
     <div class="chat-interface" id="chatInterface">
         <div class="chat-header">
-            <div>
-                <h4 style="margin:0;color:white;font-size:16px;">Mystiv Support</h4>
-                <p style="margin:0;font-size:12px;opacity:0.8;">We typically reply in a few minutes</p>
-            </div>
+            <div><h4 style="margin:0;color:white;font-size:16px;">Mystiv Support</h4><p style="margin:0;font-size:12px;opacity:0.8;">We typically reply in a few minutes</p></div>
             <button class="close-chat" id="closeChat">&times;</button>
         </div>
         <div class="chat-body" id="chatBody">
-            <div class="chat-message bot-message">
-                <p style="margin:0;">Hi there! 👋 How can we help you today?</p>
-            </div>
+            <div class="chat-message bot-message"><p style="margin:0;">Hi there! 👋 How can we help you today?</p></div>
         </div>
         <div class="chat-input-area">
             <input type="text" placeholder="Type a message..." id="chatInput">
-            <button class="send-message" id="sendMessage" aria-label="Send">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            </button>
+            <button class="send-message" id="sendMessage" aria-label="Send"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+        </div>
+    </div>
+
+    <!-- Booking Popup Modal -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-glass">
+            <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+            <h3 class="modal-title">Book Your Service</h3>
+            <p class="modal-subtitle">We'll confirm your appointment within minutes.</p>
+            <form class="modal-form" id="popupBookingForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="popupName">Full Name *</label>
+                        <input type="text" id="popupName" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="popupPhone">Phone Number *</label>
+                        <input type="tel" id="popupPhone" class="form-control" placeholder="+254 700 000 000" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="popupVehicle">Vehicle Make &amp; Model *</label>
+                    <input type="text" id="popupVehicle" class="form-control" placeholder="Toyota Harrier 2020" required>
+                </div>
+                <div class="form-group">
+                    <label>Primary Service *</label>
+                    <div class="popup-primary-pills">
+                        <button type="button" class="popup-primary-pill" data-val="Garage">🔧 Garage</button>
+                        <button type="button" class="popup-primary-pill" data-val="Body Work">🚗 Body Works</button>
+                        <button type="button" class="popup-primary-pill" data-val="Fabrication">⚒️ Fabrication</button>
+                        <button type="button" class="popup-primary-pill" data-val="Car Wash">✨ Carwash</button>
+                        <button type="button" class="popup-primary-pill" data-val="Recovery">🚨 Recovery</button>
+                        <button type="button" class="popup-primary-pill" data-val="Bar">☕ Bar</button>
+                    </div>
+                </div>
+                <div class="popup-specific-wrap" id="popupSpecificWrap">
+                    <div class="form-group">
+                        <label>Specific Service(s)</label>
+                        <div class="popup-service-list" id="popupServiceList"></div>
+                        <button type="button" class="popup-confirm-sel-btn" id="popupConfirmBtn">Confirm Selection ✓</button>
+                        <div class="popup-service-summary" id="popupSummary"></div>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="popupDate">Preferred Date *</label>
+                        <input type="date" id="popupDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="popupTime">Preferred Time</label>
+                        <input type="time" id="popupTime" class="form-control">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top:8px;">Confirm Booking →</button>
+                <div id="popupFormMsg" style="display:none;margin-top:12px;"></div>
+            </form>
         </div>
     </div>
 

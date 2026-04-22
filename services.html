@@ -24,9 +24,21 @@
                 <a href="services.html" class="active">Services</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="index.html#estimator">Price Calculator</a>
-                <a href="#contact">Contact</a>
+                <div class="nav-contact-wrap">
+                    <a href="#" id="contactNavTrigger">Contact</a>
+                    <div class="contact-popup" id="contactPopup">
+                        <a href="tel:+254711758633" class="contact-popup-link">
+                            <span class="contact-popup-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.4 2 2 0 0 1 3.62 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"></path></svg></span>
+                            +254 711 758 633
+                        </a>
+                        <a href="mailto:info@mystiv.co.ke" class="contact-popup-link">
+                            <span class="contact-popup-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+                            info@mystiv.co.ke
+                        </a>
+                    </div>
+                </div>
             </div>
-            <a href="#booking" class="btn btn-primary" aria-label="Book Service">Book Service</a>
+            <button class="btn btn-primary" data-booking-popup="" aria-label="Book Service">Book Service</button>
             <button class="mobile-menu-btn" aria-label="Toggle Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -38,13 +50,28 @@
     </nav>
 
     <!-- Page Hero -->
-    <section class="hero" style="min-height:44vh;padding:80px 0 72px;">
+    <section class="hero" style="min-height:44vh;padding:100px 0 64px;">
         <div class="container" style="text-align:center;">
-            <p class="eyebrow reveal" style="color:rgba(255,255,255,0.6);">What We Do</p>
-            <h1 class="hero-headline reveal" style="margin-bottom:16px;">Premium Auto Services</h1>
-            <p class="hero-subtext reveal" style="margin:0 auto;max-width:560px;">
-                Complete automotive care handled by experienced technicians. Browse all services below and book instantly.
-            </p>
+            <p class="eyebrow" style="color:rgba(255,255,255,0.6);">What We Do</p>
+            <div class="page-hero-carousel" style="max-width:620px;margin:0 auto;">
+                <div class="page-hero-slide active">
+                    <h1 class="hero-headline" style="margin-bottom:16px;">Expert Auto Care</h1>
+                    <p class="hero-subtext" style="margin:0 auto;max-width:520px;">Skilled technicians delivering end-to-end automotive solutions. Explore our services and book in seconds.</p>
+                </div>
+                <div class="page-hero-slide">
+                    <h1 class="hero-headline" style="margin-bottom:16px;">Complete Car Care, Simplified</h1>
+                    <p class="hero-subtext" style="margin:0 auto;max-width:520px;">From routine service to complex repairs — handled by professionals. View services and schedule your visit instantly.</p>
+                </div>
+                <div class="page-hero-slide">
+                    <h1 class="hero-headline" style="margin-bottom:16px;">All-in-One Automotive Service</h1>
+                    <p class="hero-subtext" style="margin:0 auto;max-width:520px;">Everything your vehicle needs, expertly handled. Browse our offerings and book your service with ease.</p>
+                </div>
+            </div>
+            <div class="page-hero-nav">
+                <button class="page-hero-dot active" aria-label="Slide 1"></button>
+                <button class="page-hero-dot" aria-label="Slide 2"></button>
+                <button class="page-hero-dot" aria-label="Slide 3"></button>
+            </div>
         </div>
     </section>
 
@@ -75,27 +102,27 @@
                         <h2 class="section-title">Garage Services</h2>
                         <p class="section-subtitle">Mechanical repair and maintenance — diagnostics, servicing, suspension, brakes, alignment, and general workshop repairs.</p>
                         <div class="svc-actions" style="margin-top:20px;">
-                            <a href="#booking" class="btn btn-primary" data-service="Garage Services">Book Now</a>
+                            <a href="#" class="btn btn-primary" data-booking-popup="" data-service="Garage Services">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="svc-cards-grid">
-                    <div class="svc-card"><div class="svc-card-name">Minor Service</div><div class="svc-card-desc">Oil change, filter replacement, fluid top-up, and general inspection.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Minor Service">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Major Service</div><div class="svc-card-desc">Full scheduled service covering engine, filters, fluids, plugs, and belts.</div><div class="svc-card-footer"><span class="svc-card-price">KES 15,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Major Service">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Computer Diagnostics</div><div class="svc-card-desc">Electronic fault scanning to identify engine, sensor, or system errors.</div><div class="svc-card-footer"><span class="svc-card-price">KES 3,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Computer Diagnostics">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Engine Repair</div><div class="svc-card-desc">Repair of engine faults — performance, overheating, misfiring, or oil leaks.</div><div class="svc-card-footer"><span class="svc-card-price">KES 25,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Engine Repair">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Brake Service</div><div class="svc-card-desc">Inspection, repair, or replacement of brake pads, discs, drums, and fluid.</div><div class="svc-card-footer"><span class="svc-card-price">KES 8,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Brake Service">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Suspension Repair</div><div class="svc-card-desc">Diagnosis and repair of shocks, struts, bushings, and control arms.</div><div class="svc-card-footer"><span class="svc-card-price">KES 12,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Suspension Repair">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Steering Repair</div><div class="svc-card-desc">Correction of rack issues, power steering problems, and linkages.</div><div class="svc-card-footer"><span class="svc-card-price">KES 10,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Steering Repair">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Wheel Alignment</div><div class="svc-card-desc">Adjustment of wheel angles to improve handling and tire life.</div><div class="svc-card-footer"><span class="svc-card-price">KES 2,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Wheel Alignment">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Tire Service</div><div class="svc-card-desc">Fitting, balancing, puncture repair, rotation, or replacement.</div><div class="svc-card-footer"><span class="svc-card-price">KES 1,500</span><a href="#booking" class="btn btn-primary btn-small" data-service="Tire Service">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Battery Check / Replace</div><div class="svc-card-desc">Battery health testing, charging system checks, and replacement.</div><div class="svc-card-footer"><span class="svc-card-price">KES 3,500</span><a href="#booking" class="btn btn-primary btn-small" data-service="Battery Check">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">AC Service / Repair</div><div class="svc-card-desc">Inspection, regassing, leak detection, and AC system repair.</div><div class="svc-card-footer"><span class="svc-card-price">KES 6,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="AC Service">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Cooling System Repair</div><div class="svc-card-desc">Repair of radiators, hoses, thermostats, and fans.</div><div class="svc-card-footer"><span class="svc-card-price">KES 8,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Cooling System Repair">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Transmission Service</div><div class="svc-card-desc">Inspection, fluid replacement, and gearbox repair support.</div><div class="svc-card-footer"><span class="svc-card-price">KES 20,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Transmission Service">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Electrical Repair</div><div class="svc-card-desc">Wiring faults, lights, sensors, alternators, and electrical systems.</div><div class="svc-card-footer"><span class="svc-card-price">KES 7,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Electrical Repair">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Pre-Purchase Inspection</div><div class="svc-card-desc">Technical inspection before purchase to identify hidden issues.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Pre-Purchase Inspection">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Fleet Maintenance</div><div class="svc-card-desc">Ongoing maintenance for company or institutional vehicles.</div><div class="svc-card-footer"><span class="svc-card-price">KES 10,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Fleet Maintenance">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Minor Service</div><div class="svc-card-desc">Oil change, filter replacement, fluid top-up, and general inspection.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Minor Service">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Major Service</div><div class="svc-card-desc">Full scheduled service covering engine, filters, fluids, plugs, and belts.</div><div class="svc-card-footer"><span class="svc-card-price">KES 15,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Major Service">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Computer Diagnostics</div><div class="svc-card-desc">Electronic fault scanning to identify engine, sensor, or system errors.</div><div class="svc-card-footer"><span class="svc-card-price">KES 3,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Computer Diagnostics">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Engine Repair</div><div class="svc-card-desc">Repair of engine faults — performance, overheating, misfiring, or oil leaks.</div><div class="svc-card-footer"><span class="svc-card-price">KES 25,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Engine Repair">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Brake Service</div><div class="svc-card-desc">Inspection, repair, or replacement of brake pads, discs, drums, and fluid.</div><div class="svc-card-footer"><span class="svc-card-price">KES 8,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Brake Service">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Suspension Repair</div><div class="svc-card-desc">Diagnosis and repair of shocks, struts, bushings, and control arms.</div><div class="svc-card-footer"><span class="svc-card-price">KES 12,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Suspension Repair">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Steering Repair</div><div class="svc-card-desc">Correction of rack issues, power steering problems, and linkages.</div><div class="svc-card-footer"><span class="svc-card-price">KES 10,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Steering Repair">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Wheel Alignment</div><div class="svc-card-desc">Adjustment of wheel angles to improve handling and tire life.</div><div class="svc-card-footer"><span class="svc-card-price">KES 2,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Wheel Alignment">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Tire Service</div><div class="svc-card-desc">Fitting, balancing, puncture repair, rotation, or replacement.</div><div class="svc-card-footer"><span class="svc-card-price">KES 1,500</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Tire Service">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Battery Check / Replace</div><div class="svc-card-desc">Battery health testing, charging system checks, and replacement.</div><div class="svc-card-footer"><span class="svc-card-price">KES 3,500</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Battery Check">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">AC Service / Repair</div><div class="svc-card-desc">Inspection, regassing, leak detection, and AC system repair.</div><div class="svc-card-footer"><span class="svc-card-price">KES 6,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="AC Service">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Cooling System Repair</div><div class="svc-card-desc">Repair of radiators, hoses, thermostats, and fans.</div><div class="svc-card-footer"><span class="svc-card-price">KES 8,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Cooling System Repair">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Transmission Service</div><div class="svc-card-desc">Inspection, fluid replacement, and gearbox repair support.</div><div class="svc-card-footer"><span class="svc-card-price">KES 20,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Transmission Service">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Electrical Repair</div><div class="svc-card-desc">Wiring faults, lights, sensors, alternators, and electrical systems.</div><div class="svc-card-footer"><span class="svc-card-price">KES 7,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Electrical Repair">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Pre-Purchase Inspection</div><div class="svc-card-desc">Technical inspection before purchase to identify hidden issues.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Pre-Purchase Inspection">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Fleet Maintenance</div><div class="svc-card-desc">Ongoing maintenance for company or institutional vehicles.</div><div class="svc-card-footer"><span class="svc-card-price">KES 10,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Fleet Maintenance">Book</a></div></div>
                 </div>
                 <button class="svc-show-all-btn" data-section="cat-garage">Show All <span class="svc-count">(16 services)</span> <span class="btn-arrow">▼</span></button>
             </div>
@@ -110,24 +137,24 @@
                         <h2 class="section-title">Body Works</h2>
                         <p class="section-subtitle">Dent repair, panel beating, spray painting, polishing, and ceramic coating. Improves structural appearance and vehicle quality.</p>
                         <div class="svc-actions" style="margin-top:20px;">
-                            <a href="#booking" class="btn btn-primary" data-service="Body Works">Book Now</a>
+                            <a href="#" class="btn btn-primary" data-booking-popup="" data-service="Body Works">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="svc-cards-grid">
-                    <div class="svc-card"><div class="svc-card-name">Panel Beating</div><div class="svc-card-desc">Repair of damaged body panels after dents or collision.</div><div class="svc-card-footer"><span class="svc-card-price">KES 15,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Panel Beating">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Accident Repair</div><div class="svc-card-desc">Full body restoration following road accidents.</div><div class="svc-card-footer"><span class="svc-card-price">KES 30,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Accident Repair">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Dent Removal</div><div class="svc-card-desc">Removal or correction of dents on doors, fenders, and bonnets.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Dent Removal">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Spray Painting</div><div class="svc-card-desc">Surface preparation, color matching, and panel repainting.</div><div class="svc-card-footer"><span class="svc-card-price">KES 12,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Spray Painting">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Full Body Repaint</div><div class="svc-card-desc">Complete repainting for restoration or rebranding.</div><div class="svc-card-footer"><span class="svc-card-price">KES 45,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Full Body Repaint">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Bumper Repair</div><div class="svc-card-desc">Repair, reshaping, and repainting of front and rear bumpers.</div><div class="svc-card-footer"><span class="svc-card-price">KES 6,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Bumper Repair">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Chassis Straightening</div><div class="svc-card-desc">Correction of frame misalignment caused by impact or heavy use.</div><div class="svc-card-footer"><span class="svc-card-price">KES 25,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Chassis Straightening">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Welding / Fabrication</div><div class="svc-card-desc">Metal joining and repair for damaged or custom body sections.</div><div class="svc-card-footer"><span class="svc-card-price">KES 10,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Welding">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Rust Treatment</div><div class="svc-card-desc">Corrosion removal, panel treatment, and protective repainting.</div><div class="svc-card-footer"><span class="svc-card-price">KES 8,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Rust Treatment">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Glass Replacement</div><div class="svc-card-desc">Windscreens, side windows, and rear glass fitting.</div><div class="svc-card-footer"><span class="svc-card-price">KES 7,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Glass Replacement">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Commercial Body Repair</div><div class="svc-card-desc">Structural and exterior repair for trucks, lorries, and buses.</div><div class="svc-card-footer"><span class="svc-card-price">KES 50,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Commercial Body Repair">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Commercial Cabin Repair</div><div class="svc-card-desc">Repair of truck or heavy vehicle cabins and body sections.</div><div class="svc-card-footer"><span class="svc-card-price">KES 20,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Cabin Repair">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Branding Surface Prep</div><div class="svc-card-desc">Preparation and finishing before fleet branding or vehicle graphics.</div><div class="svc-card-footer"><span class="svc-card-price">KES 8,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Branding Prep">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Panel Beating</div><div class="svc-card-desc">Repair of damaged body panels after dents or collision.</div><div class="svc-card-footer"><span class="svc-card-price">KES 15,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Panel Beating">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Accident Repair</div><div class="svc-card-desc">Full body restoration following road accidents.</div><div class="svc-card-footer"><span class="svc-card-price">KES 30,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Accident Repair">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Dent Removal</div><div class="svc-card-desc">Removal or correction of dents on doors, fenders, and bonnets.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Dent Removal">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Spray Painting</div><div class="svc-card-desc">Surface preparation, color matching, and panel repainting.</div><div class="svc-card-footer"><span class="svc-card-price">KES 12,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Spray Painting">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Full Body Repaint</div><div class="svc-card-desc">Complete repainting for restoration or rebranding.</div><div class="svc-card-footer"><span class="svc-card-price">KES 45,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Full Body Repaint">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Bumper Repair</div><div class="svc-card-desc">Repair, reshaping, and repainting of front and rear bumpers.</div><div class="svc-card-footer"><span class="svc-card-price">KES 6,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Bumper Repair">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Chassis Straightening</div><div class="svc-card-desc">Correction of frame misalignment caused by impact or heavy use.</div><div class="svc-card-footer"><span class="svc-card-price">KES 25,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Chassis Straightening">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Welding / Fabrication</div><div class="svc-card-desc">Metal joining and repair for damaged or custom body sections.</div><div class="svc-card-footer"><span class="svc-card-price">KES 10,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Welding">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Rust Treatment</div><div class="svc-card-desc">Corrosion removal, panel treatment, and protective repainting.</div><div class="svc-card-footer"><span class="svc-card-price">KES 8,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Rust Treatment">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Glass Replacement</div><div class="svc-card-desc">Windscreens, side windows, and rear glass fitting.</div><div class="svc-card-footer"><span class="svc-card-price">KES 7,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Glass Replacement">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Commercial Body Repair</div><div class="svc-card-desc">Structural and exterior repair for trucks, lorries, and buses.</div><div class="svc-card-footer"><span class="svc-card-price">KES 50,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Commercial Body Repair">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Commercial Cabin Repair</div><div class="svc-card-desc">Repair of truck or heavy vehicle cabins and body sections.</div><div class="svc-card-footer"><span class="svc-card-price">KES 20,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Cabin Repair">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Branding Surface Prep</div><div class="svc-card-desc">Preparation and finishing before fleet branding or vehicle graphics.</div><div class="svc-card-footer"><span class="svc-card-price">KES 8,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Branding Prep">Book</a></div></div>
                 </div>
                 <button class="svc-show-all-btn" data-section="cat-bodyworks">Show All <span class="svc-count">(13 services)</span> <span class="btn-arrow">▼</span></button>
             </div>
@@ -142,17 +169,17 @@
                         <h2 class="section-title">Fabrication</h2>
                         <p class="section-subtitle">Custom metalwork and structural repair — welding, reinforcement, bull bars, and chassis modifications for heavy commercial vehicles.</p>
                         <div class="svc-actions" style="margin-top:20px;">
-                            <a href="#booking" class="btn btn-primary" data-service="Fabrication">Book Now</a>
+                            <a href="#" class="btn btn-primary" data-booking-popup="" data-service="Fabrication">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="svc-cards-grid">
-                    <div class="svc-card"><div class="svc-card-name">Metal Fabrication</div><div class="svc-card-desc">Custom fabrication of metal components for heavy vehicles.</div><div class="svc-card-footer"><span class="svc-card-price">KES 15,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Metal Fabrication">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Structural Welding</div><div class="svc-card-desc">Welding and reinforcement of damaged vehicle structures.</div><div class="svc-card-footer"><span class="svc-card-price">KES 12,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Structural Welding">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Bull Bar Fabrication</div><div class="svc-card-desc">Design, repair, or modification of bull bars and protective structures.</div><div class="svc-card-footer"><span class="svc-card-price">KES 25,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Bull Bar Fabrication">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Chassis Reinforcement</div><div class="svc-card-desc">Strengthening and repair of chassis for load performance.</div><div class="svc-card-footer"><span class="svc-card-price">KES 20,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Chassis Reinforcement">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Trailer / Truck Body Repair</div><div class="svc-card-desc">Repair of heavy vehicle bodies, trailers, and load-carrying structures.</div><div class="svc-card-footer"><span class="svc-card-price">KES 35,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Trailer Repair">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Custom Heavy Vehicle Works</div><div class="svc-card-desc">Specialized metalwork and modifications for trucks and lorries.</div><div class="svc-card-footer"><span class="svc-card-price">KES 40,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Custom Heavy Works">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Metal Fabrication</div><div class="svc-card-desc">Custom fabrication of metal components for heavy vehicles.</div><div class="svc-card-footer"><span class="svc-card-price">KES 15,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Metal Fabrication">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Structural Welding</div><div class="svc-card-desc">Welding and reinforcement of damaged vehicle structures.</div><div class="svc-card-footer"><span class="svc-card-price">KES 12,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Structural Welding">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Bull Bar Fabrication</div><div class="svc-card-desc">Design, repair, or modification of bull bars and protective structures.</div><div class="svc-card-footer"><span class="svc-card-price">KES 25,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Bull Bar Fabrication">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Chassis Reinforcement</div><div class="svc-card-desc">Strengthening and repair of chassis for load performance.</div><div class="svc-card-footer"><span class="svc-card-price">KES 20,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Chassis Reinforcement">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Trailer / Truck Body Repair</div><div class="svc-card-desc">Repair of heavy vehicle bodies, trailers, and load-carrying structures.</div><div class="svc-card-footer"><span class="svc-card-price">KES 35,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Trailer Repair">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Custom Heavy Vehicle Works</div><div class="svc-card-desc">Specialized metalwork and modifications for trucks and lorries.</div><div class="svc-card-footer"><span class="svc-card-price">KES 40,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Custom Heavy Works">Book</a></div></div>
                 </div>
             </div>
             <div class="svc-divider"></div>
@@ -166,26 +193,26 @@
                         <h2 class="section-title">Carwash &amp; Detailing</h2>
                         <p class="section-subtitle">Exterior wash, interior cleaning, engine wash, paint correction, ceramic coating, and full detailing services.</p>
                         <div class="svc-actions" style="margin-top:20px;">
-                            <a href="#booking" class="btn btn-primary" data-service="Carwash & Detailing">Book Now</a>
+                            <a href="#" class="btn btn-primary" data-booking-popup="" data-service="Carwash & Detailing">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="svc-cards-grid">
-                    <div class="svc-card"><div class="svc-card-name">Exterior Wash</div><div class="svc-card-desc">Body cleaning to remove dust, mud, and surface dirt.</div><div class="svc-card-footer"><span class="svc-card-price">KES 500</span><a href="#booking" class="btn btn-primary btn-small" data-service="Exterior Wash">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Interior Cleaning</div><div class="svc-card-desc">Vacuuming, dashboard cleaning, seat wiping, and mat cleaning.</div><div class="svc-card-footer"><span class="svc-card-price">KES 800</span><a href="#booking" class="btn btn-primary btn-small" data-service="Interior Cleaning">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Full Car Wash</div><div class="svc-card-desc">Combined interior and exterior wash for general cleanliness.</div><div class="svc-card-footer"><span class="svc-card-price">KES 1,200</span><a href="#booking" class="btn btn-primary btn-small" data-service="Full Car Wash">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Engine Wash</div><div class="svc-card-desc">Careful cleaning of the engine bay to remove grease and dirt.</div><div class="svc-card-footer"><span class="svc-card-price">KES 2,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Engine Wash">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Detailing</div><div class="svc-card-desc">Deep cleaning and cosmetic restoration of interior and exterior.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Detailing">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Ceramic Coating</div><div class="svc-card-desc">Advanced paint protection for long-lasting gloss and easy cleaning.</div><div class="svc-card-footer"><span class="svc-card-price">KES 25,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Ceramic Coating">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Undercarriage Wash</div><div class="svc-card-desc">Cleaning underneath the vehicle to remove mud and corrosive buildup.</div><div class="svc-card-footer"><span class="svc-card-price">KES 1,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Undercarriage Wash">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Tire / Rim Cleaning</div><div class="svc-card-desc">Focused cleaning of tires, wheel wells, and rims.</div><div class="svc-card-footer"><span class="svc-card-price">KES 500</span><a href="#booking" class="btn btn-primary btn-small" data-service="Rim Cleaning">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Interior Detailing</div><div class="svc-card-desc">Deep-clean of seats, carpets, dashboard, and interior surfaces.</div><div class="svc-card-footer"><span class="svc-card-price">KES 4,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Interior Detailing">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Exterior Detailing</div><div class="svc-card-desc">Deep cleaning, decontamination, and polishing of the outer body.</div><div class="svc-card-footer"><span class="svc-card-price">KES 4,500</span><a href="#booking" class="btn btn-primary btn-small" data-service="Exterior Detailing">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Paint Correction</div><div class="svc-card-desc">Machine polishing to remove swirl marks and light scratches.</div><div class="svc-card-footer"><span class="svc-card-price">KES 15,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Paint Correction">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Wax / Sealant Application</div><div class="svc-card-desc">Protective coating to preserve paint finish and improve shine.</div><div class="svc-card-footer"><span class="svc-card-price">KES 3,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Wax Application">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Headlight Restoration</div><div class="svc-card-desc">Cleaning and polishing faded or cloudy headlights.</div><div class="svc-card-footer"><span class="svc-card-price">KES 2,500</span><a href="#booking" class="btn btn-primary btn-small" data-service="Headlight Restoration">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Seat / Upholstery Cleaning</div><div class="svc-card-desc">Deep cleaning of fabric or leather seats to remove stains.</div><div class="svc-card-footer"><span class="svc-card-price">KES 3,500</span><a href="#booking" class="btn btn-primary btn-small" data-service="Upholstery Cleaning">Book</a></div></div>
-                    <div class="svc-card svc-hidden"><div class="svc-card-name">Odor Removal</div><div class="svc-card-desc">Interior treatment to eliminate bad smells from the cabin.</div><div class="svc-card-footer"><span class="svc-card-price">KES 2,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Odor Removal">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Exterior Wash</div><div class="svc-card-desc">Body cleaning to remove dust, mud, and surface dirt.</div><div class="svc-card-footer"><span class="svc-card-price">KES 500</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Exterior Wash">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Interior Cleaning</div><div class="svc-card-desc">Vacuuming, dashboard cleaning, seat wiping, and mat cleaning.</div><div class="svc-card-footer"><span class="svc-card-price">KES 800</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Interior Cleaning">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Full Car Wash</div><div class="svc-card-desc">Combined interior and exterior wash for general cleanliness.</div><div class="svc-card-footer"><span class="svc-card-price">KES 1,200</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Full Car Wash">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Engine Wash</div><div class="svc-card-desc">Careful cleaning of the engine bay to remove grease and dirt.</div><div class="svc-card-footer"><span class="svc-card-price">KES 2,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Engine Wash">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Detailing</div><div class="svc-card-desc">Deep cleaning and cosmetic restoration of interior and exterior.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Detailing">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Ceramic Coating</div><div class="svc-card-desc">Advanced paint protection for long-lasting gloss and easy cleaning.</div><div class="svc-card-footer"><span class="svc-card-price">KES 25,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Ceramic Coating">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Undercarriage Wash</div><div class="svc-card-desc">Cleaning underneath the vehicle to remove mud and corrosive buildup.</div><div class="svc-card-footer"><span class="svc-card-price">KES 1,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Undercarriage Wash">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Tire / Rim Cleaning</div><div class="svc-card-desc">Focused cleaning of tires, wheel wells, and rims.</div><div class="svc-card-footer"><span class="svc-card-price">KES 500</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Rim Cleaning">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Interior Detailing</div><div class="svc-card-desc">Deep-clean of seats, carpets, dashboard, and interior surfaces.</div><div class="svc-card-footer"><span class="svc-card-price">KES 4,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Interior Detailing">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Exterior Detailing</div><div class="svc-card-desc">Deep cleaning, decontamination, and polishing of the outer body.</div><div class="svc-card-footer"><span class="svc-card-price">KES 4,500</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Exterior Detailing">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Paint Correction</div><div class="svc-card-desc">Machine polishing to remove swirl marks and light scratches.</div><div class="svc-card-footer"><span class="svc-card-price">KES 15,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Paint Correction">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Wax / Sealant Application</div><div class="svc-card-desc">Protective coating to preserve paint finish and improve shine.</div><div class="svc-card-footer"><span class="svc-card-price">KES 3,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Wax Application">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Headlight Restoration</div><div class="svc-card-desc">Cleaning and polishing faded or cloudy headlights.</div><div class="svc-card-footer"><span class="svc-card-price">KES 2,500</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Headlight Restoration">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Seat / Upholstery Cleaning</div><div class="svc-card-desc">Deep cleaning of fabric or leather seats to remove stains.</div><div class="svc-card-footer"><span class="svc-card-price">KES 3,500</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Upholstery Cleaning">Book</a></div></div>
+                    <div class="svc-card svc-hidden"><div class="svc-card-name">Odor Removal</div><div class="svc-card-desc">Interior treatment to eliminate bad smells from the cabin.</div><div class="svc-card-footer"><span class="svc-card-price">KES 2,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Odor Removal">Book</a></div></div>
                 </div>
                 <button class="svc-show-all-btn" data-section="cat-carwash">Show All <span class="svc-count">(15 services)</span> <span class="btn-arrow">▼</span></button>
             </div>
@@ -200,17 +227,17 @@
                         <h2 class="section-title">Recovery Services</h2>
                         <p class="section-subtitle">Vehicle recovery and transport for broken-down, damaged, or non-operational vehicles. Get to Mystiv safely, even when you can't drive in.</p>
                         <div class="svc-actions" style="margin-top:20px;">
-                            <a href="#booking" class="btn btn-primary" data-service="Recovery Services">Book Now</a>
+                            <a href="#" class="btn btn-primary" data-booking-popup="" data-service="Recovery Services">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="svc-cards-grid">
-                    <div class="svc-card"><div class="svc-card-name">Breakdown Recovery</div><div class="svc-card-desc">Recovery for stalled or non-operational vehicles.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Breakdown Recovery">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Accident Recovery</div><div class="svc-card-desc">Safe retrieval of accident-damaged vehicles for assessment.</div><div class="svc-card-footer"><span class="svc-card-price">KES 8,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Accident Recovery">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Vehicle Towing</div><div class="svc-card-desc">Towing service from customer locations to Mystiv.</div><div class="svc-card-footer"><span class="svc-card-price">KES 4,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Vehicle Towing">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Workshop Delivery</div><div class="svc-card-desc">Controlled transport to/from the workshop when a vehicle can't be driven.</div><div class="svc-card-footer"><span class="svc-card-price">KES 3,500</span><a href="#booking" class="btn btn-primary btn-small" data-service="Workshop Delivery">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Heavy Vehicle Recovery</div><div class="svc-card-desc">Recovery for trucks, buses, trailers, and heavy commercial vehicles.</div><div class="svc-card-footer"><span class="svc-card-price">KES 15,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Heavy Recovery">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Emergency Response</div><div class="svc-card-desc">Rapid response for urgent vehicle incidents requiring immediate towing.</div><div class="svc-card-footer"><span class="svc-card-price">KES 7,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Emergency Recovery">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Breakdown Recovery</div><div class="svc-card-desc">Recovery for stalled or non-operational vehicles.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Breakdown Recovery">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Accident Recovery</div><div class="svc-card-desc">Safe retrieval of accident-damaged vehicles for assessment.</div><div class="svc-card-footer"><span class="svc-card-price">KES 8,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Accident Recovery">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Vehicle Towing</div><div class="svc-card-desc">Towing service from customer locations to Mystiv.</div><div class="svc-card-footer"><span class="svc-card-price">KES 4,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Vehicle Towing">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Workshop Delivery</div><div class="svc-card-desc">Controlled transport to/from the workshop when a vehicle can't be driven.</div><div class="svc-card-footer"><span class="svc-card-price">KES 3,500</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Workshop Delivery">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Heavy Vehicle Recovery</div><div class="svc-card-desc">Recovery for trucks, buses, trailers, and heavy commercial vehicles.</div><div class="svc-card-footer"><span class="svc-card-price">KES 15,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Heavy Recovery">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Emergency Response</div><div class="svc-card-desc">Rapid response for urgent vehicle incidents requiring immediate towing.</div><div class="svc-card-footer"><span class="svc-card-price">KES 7,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Emergency Recovery">Book</a></div></div>
                 </div>
             </div>
             <div class="svc-divider"></div>
@@ -224,17 +251,17 @@
                         <h2 class="section-title">Bar &amp; Service</h2>
                         <p class="section-subtitle">On-premise refreshments, drinks, and customer lounge service while your vehicle is being worked on. Making your wait comfortable.</p>
                         <div class="svc-actions" style="margin-top:20px;">
-                            <a href="#booking" class="btn btn-primary" data-service="Bar & Service">Book Now</a>
+                            <a href="#" class="btn btn-primary" data-booking-popup="" data-service="Bar & Service">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="svc-cards-grid">
-                    <div class="svc-card"><div class="svc-card-name">Soft Drinks</div><div class="svc-card-desc">Bottled, canned, or fountain soft drinks for waiting customers.</div><div class="svc-card-footer"><span class="svc-card-price">KES 150</span><a href="#booking" class="btn btn-primary btn-small" data-service="Soft Drinks">Order</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Tea / Coffee</div><div class="svc-card-desc">Hot beverage service for customers and waiting guests.</div><div class="svc-card-footer"><span class="svc-card-price">KES 100</span><a href="#booking" class="btn btn-primary btn-small" data-service="Tea / Coffee">Order</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Snacks</div><div class="svc-card-desc">Light bites including crisps, sausages, pastries, and packaged snacks.</div><div class="svc-card-footer"><span class="svc-card-price">KES 200</span><a href="#booking" class="btn btn-primary btn-small" data-service="Snacks">Order</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Meals / Food Service</div><div class="svc-card-desc">Freshly prepared food or plated meal service for visitors.</div><div class="svc-card-footer"><span class="svc-card-price">KES 500</span><a href="#booking" class="btn btn-primary btn-small" data-service="Meals">Order</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Lounge / Waiting Area</div><div class="svc-card-desc">Customer hospitality while your vehicle is being serviced.</div><div class="svc-card-footer"><span class="svc-card-price">Complimentary</span><a href="#booking" class="btn btn-outline btn-small" data-service="Lounge Service">Book</a></div></div>
-                    <div class="svc-card"><div class="svc-card-name">Event / Group Hosting</div><div class="svc-card-desc">Food and beverage support for partner visits and group sessions.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#booking" class="btn btn-primary btn-small" data-service="Event Hosting">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Soft Drinks</div><div class="svc-card-desc">Bottled, canned, or fountain soft drinks for waiting customers.</div><div class="svc-card-footer"><span class="svc-card-price">KES 150</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Soft Drinks">Order</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Tea / Coffee</div><div class="svc-card-desc">Hot beverage service for customers and waiting guests.</div><div class="svc-card-footer"><span class="svc-card-price">KES 100</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Tea / Coffee">Order</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Snacks</div><div class="svc-card-desc">Light bites including crisps, sausages, pastries, and packaged snacks.</div><div class="svc-card-footer"><span class="svc-card-price">KES 200</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Snacks">Order</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Meals / Food Service</div><div class="svc-card-desc">Freshly prepared food or plated meal service for visitors.</div><div class="svc-card-footer"><span class="svc-card-price">KES 500</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Meals">Order</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Lounge / Waiting Area</div><div class="svc-card-desc">Customer hospitality while your vehicle is being serviced.</div><div class="svc-card-footer"><span class="svc-card-price">Complimentary</span><a href="#" class="btn btn-outline btn-small" data-booking-popup="" data-service="Lounge Service">Book</a></div></div>
+                    <div class="svc-card"><div class="svc-card-name">Event / Group Hosting</div><div class="svc-card-desc">Food and beverage support for partner visits and group sessions.</div><div class="svc-card-footer"><span class="svc-card-price">KES 5,000</span><a href="#" class="btn btn-primary btn-small" data-booking-popup="" data-service="Event Hosting">Book</a></div></div>
                 </div>
             </div>
 
@@ -398,6 +425,47 @@
         <div class="chat-input-area">
             <input type="text" placeholder="Type a message..." id="chatInput">
             <button class="send-message" id="sendMessage" aria-label="Send"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+        </div>
+    </div>
+
+    <!-- Booking Popup Modal -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-glass">
+            <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+            <h3 class="modal-title">Book Your Service</h3>
+            <p class="modal-subtitle">We'll confirm your appointment within minutes.</p>
+            <form class="modal-form" id="popupBookingForm">
+                <div class="form-grid">
+                    <div class="form-group"><label for="popupName">Full Name *</label><input type="text" id="popupName" class="form-control" placeholder="John Doe" required></div>
+                    <div class="form-group"><label for="popupPhone">Phone Number *</label><input type="tel" id="popupPhone" class="form-control" placeholder="+254 700 000 000" required></div>
+                </div>
+                <div class="form-group"><label for="popupVehicle">Vehicle Make &amp; Model *</label><input type="text" id="popupVehicle" class="form-control" placeholder="Toyota Harrier 2020" required></div>
+                <div class="form-group">
+                    <label>Primary Service *</label>
+                    <div class="popup-primary-pills">
+                        <button type="button" class="popup-primary-pill" data-val="Garage">🔧 Garage</button>
+                        <button type="button" class="popup-primary-pill" data-val="Body Work">🚗 Body Works</button>
+                        <button type="button" class="popup-primary-pill" data-val="Fabrication">⚒️ Fabrication</button>
+                        <button type="button" class="popup-primary-pill" data-val="Car Wash">✨ Carwash</button>
+                        <button type="button" class="popup-primary-pill" data-val="Recovery">🚨 Recovery</button>
+                        <button type="button" class="popup-primary-pill" data-val="Bar">☕ Bar</button>
+                    </div>
+                </div>
+                <div class="popup-specific-wrap" id="popupSpecificWrap">
+                    <div class="form-group">
+                        <label>Specific Service(s)</label>
+                        <div class="popup-service-list" id="popupServiceList"></div>
+                        <button type="button" class="popup-confirm-sel-btn" id="popupConfirmBtn">Confirm Selection ✓</button>
+                        <div class="popup-service-summary" id="popupSummary"></div>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group"><label for="popupDate">Preferred Date *</label><input type="date" id="popupDate" class="form-control" required></div>
+                    <div class="form-group"><label for="popupTime">Preferred Time</label><input type="time" id="popupTime" class="form-control"></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top:8px;">Confirm Booking →</button>
+                <div id="popupFormMsg" style="display:none;margin-top:12px;"></div>
+            </form>
         </div>
     </div>
 
