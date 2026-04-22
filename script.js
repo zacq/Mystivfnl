@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    const BOOKING_ENDPOINT = 'https://primary-production-bfd8.up.railway.app/webhook/mystiv-booking';
+
     // ─── 0. Reveal Observer (.reveal) ────────────────────────────────────────
     const revealEls = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
@@ -279,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let ok = false;
             try {
-                const res = await fetch('/book.php', {
+                const res = await fetch(BOOKING_ENDPOINT, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
@@ -502,7 +504,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let ok = false;
             try {
-                const res = await fetch('/book.php', {
+                const res = await fetch(BOOKING_ENDPOINT, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
