@@ -61,7 +61,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ ({ records: [{ fields: { 'Full Name': $json.fullName, 'Phone Number': $json.phone, 'Email Address': $json.email, 'Vehicle': $json.vehicle, 'Service Requested': $json.service, 'Preferred Date': $json.date, 'Preferred Time': $json.time, 'Additional Notes': $json.notes, 'Submission Source': $json.source, 'Status': 'New' } }] }) }}",
+        "jsonBody": "={{ ({ records: [{ fields: { 'Full Name': $json.fullName, 'Phone Number': $json.phone, 'Email Address': $json.email, 'Vehicle': $json.vehicle, 'Service Requested': $json.service, 'Preferred Date': $json.date, 'Preferred Time': $json.time, 'Additional Notes': $json.notes, 'Submission Source': $json.source } }] }) }}",
         "options": { "response": { "response": {} } }
       },
       "id": "d4e5f6a7-0004-4000-8000-saveairtable",

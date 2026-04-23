@@ -67,7 +67,6 @@ $payload = json_encode([
             'Preferred Time'    => $body['Preferred Time']    ?? '',
             'Additional Notes'  => $body['Additional Notes']  ?? '',
             'Submission Source' => $body['Submission Source'] ?? 'Booking Form',
-            'Status'            => 'New',
         ]
     ]]
 ]);
